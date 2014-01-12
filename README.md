@@ -1,1 +1,1 @@
-Landing page for Senti
+Senti Landing Page

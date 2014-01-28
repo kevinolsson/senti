@@ -202,11 +202,12 @@ body, .onepage-wrapper, html {
 	padding: 0;
 	text-align: center;
 }
-.onepage-pagination li a{
+.onepage-pagination li a {
 	padding: 10px;
 	width: 4px;
 	height: 4px;
 	display: block;
+	outline: none;
 }
 .onepage-pagination li a:before{
 	content: '';
@@ -266,11 +267,6 @@ body.disabled-onepage-scroll, .disabled-onepage-scroll .onepage-wrapper, html {
    ========================================================================== */
 
 
-// Global vars
-$fullwidth: 1140px;
-$semifullwidth: 960px;
-
-
 // A bunch of colors
 $white: #FFFFFF;
 $gray: #F7F7F7;
@@ -287,8 +283,16 @@ $darkyellow: #BC8E0F;
 $base: 'Roboto', sans-serif;
 $dosis: 'Dosis', sans-serif;
 $roboto: 'Roboto', sans-serif;
-@import url(http://fonts.googleapis.com/css?family=Dosis:300,500|Roboto:500,300);
+@import url(http://fonts.googleapis.com/css?family=Dosis:300,500|Roboto:100,200,300,400,500);
 
+
+// @font-face {
+// 	font-family: VideoJS;
+// 	src: url(//vjs.zencdn.net/4.2/f/1/vjs.eot);
+// 	src: url(//vjs.zencdn.net/4.2/f/1/vjs.eot?#iefix) format('embedded-opentype'), url(//vjs.zencdn.net/4.2/f/1/vjs.woff) format('woff'), url(//vjs.zencdn.net/4.2/f/1/vjs.ttf) format('truetype');
+// 	font-weight: 400;
+// 	font-style: normal
+// }
 
 
 @function getpercent ($container, $parent) {
@@ -312,6 +316,14 @@ $roboto: 'Roboto', sans-serif;
 @mixin boxshadow ($shadow) {
 	box-shadow: $shadow;
 	-webkit-box-shadow: $shadow;
+}
+
+@mixin transform ($transform) {
+	transform: $transform;
+	-webkit-transform: $transform;
+	-moz-transform: $transform;
+	-ms-transform: $transform;
+	-o-transform: $transform;
 }
 
 @mixin transition ($transition) {
@@ -344,6 +356,12 @@ $roboto: 'Roboto', sans-serif;
 
 
 
+
+// Global vars
+$fullwidth: 1140px;
+$semifullwidth: 960px;
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -366,6 +384,23 @@ a {
 }
 
 
+// Video
+.video-js {
+	// .vjs-play-progress,
+	// .vjs-volume-level {
+	// 	background-color: $blue !important;
+	// 	background-image: none !important;
+	// }
+	// .vjs-seek-handle {
+	// 	text-shadow: none !important;
+	// 	@include transform(0deg !important);
+	// 	@include boxshadow((
+	// 		none !important
+	// 	));
+	// }
+}
+
+
 
 
 
@@ -375,18 +410,42 @@ header#top {
 	width: 100%;
 	height: $headerheight;
 	background-color: $logoblue;
+	background-color: hextorgba($logoblue, 0.95);
+	overflow: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 2;
-
+	@include transition(all 0.5s ease-in-out);
+	
 	&.detached {
-		$this_width: $semifullwidth + 60;
+		$this_width: $semifullwidth + 80;
 		width: $this_width;
 		top: 30px;
 		left: 50%;
 		margin-left: -$this_width / 2;
 	}
+
+	&.transparent {
+		background-color: transparent;
+
+		nav#top-nav {
+			ul {
+				li {
+					a {
+						background-color: transparent !important;
+					}
+					&:last-child {
+						a {
+							background-color: black(0.2) !important;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
 	div#top-container {
 		width: $semifullwidth;
 		display: block !important;
@@ -402,6 +461,7 @@ header#top {
 			display: block;
 			outline: 0;
 			margin-top: 15px;
+			margin-left: -10px;
 		}
 		nav#top-nav {
 			float: right;
@@ -414,17 +474,37 @@ header#top {
 					a {
 						height: $headerheight;
 						color: #fff;
-						font: 300 1.25em $roboto;
+						font: 300 1.2em $roboto;
 						text-shadow: 0 2px 0 black(0);
 						line-height: $headerheight;
-						letter-spacing: 3px;
+						letter-spacing: 1px;
 						vertical-align: middle;
 						display: block;
-						padding: 0 20px;
+						padding: 0 15px;
 
 						&.active, &:hover {
 							background-color: white(0.1);
 							text-shadow: 0 2px 0 black(0.05);
+						}
+					}
+
+					&:last-child {
+						// margin-right: -20px;
+						padding: 0 0 0 20px;
+
+						a {
+							height: 40px;
+							background-color: $blue;
+							color: #fff;
+							font: 400 1.25em $base;
+							letter-spacing: 1px;
+							line-height: 40px;
+							text-align: center;
+							margin: 20px 0;
+							padding: 5px 15px;
+							&:hover {
+								background-color: $blue;
+							}
 						}
 					}
 				}
@@ -448,8 +528,12 @@ div#maincontainer {
 	}
 }
 
+
+
+
+// Front pane
 .pane-1 {
-	background-image: url('../img/hero-bg.jpg');
+	background-image: url('../img/hero-bg.png');
 
 	div.toptext {
 		width: 100%;
@@ -459,11 +543,11 @@ div#maincontainer {
 		h1,
 		h2 {
 			color: #fff;
-			text-shadow: 0 3px 0 black(0.2);
+			text-shadow: 0 3px 2px black(0.25);
 		}
 		h1 {
 			// color: $logoblue;
-			font: 300 6em $dosis;
+			font: 300 5em $dosis;
 		}
 		h2 {
 			// color: $lightblue;
@@ -478,12 +562,12 @@ div#maincontainer {
 		button {
 			background-color: $blue;
 			color: #fff;
-			font: 300 1.5em $roboto;
+			font: 400 1.2em $roboto;
 			text-shadow: 0 -1px 0 black(0.2);
-			letter-spacing: 1px;
-			padding: 10px 30px;
+			letter-spacing: 2px;
+			padding: 12px 30px;
 			border: none;
-			@include borderradiusall(12px);
+			@include borderradiusall(5px);
 			@include transition(all 0.2s ease-in-out);
 			@include boxshadow((
 				0 3px 0 $darkblue
@@ -499,89 +583,227 @@ div#maincontainer {
 
 
 
-
-
-
-
-
-
-/* ==========================================================================
-   Grid
-   ========================================================================== */
-
-/*  SECTIONS  ============================================================================= */
-
-.section {
-	clear: both;
-	padding: 0px;
-	margin: 0px;
+// Video
+.pane-2 {
 }
 
-/*  GROUPING  ============================================================================= */
 
 
-.group:before,
-.group:after {
-    content: "";
-    display: table;
-}
-.group:after {
-    clear:both;
-}
-.group {
-    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+
+// Why Senti?
+.pane-3 {
 }
 
-/*  GRID COLUMN SETUP   ==================================================================== */
 
-.col {
-	display: block;
-	float: left;
-	margin: 1% 0 1% 1.6%;
+
+
+// Features
+.pane-4 {
 }
 
-.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
 
 
-/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
 
-@media only screen and (max-width: 480px) {
-	.col { 
-		margin: 1% 0 1% 0%;
+// Pricing
+.pane-5 {
+}
+
+
+
+
+// Blog
+.pane-6 {
+	background-color: $logoblue;
+	// background-color: $gray;
+
+	div#blog {
+		width: 100%;
+		height: calc(100% - 150px);
+		padding-top: 100px;
+
+		div#blog-content {
+			width: $semifullwidth;
+			height: 100%;
+			max-height: 1000px;
+			margin: 0 auto;
+			// background-color: black(0.1);
+
+			section#bigarticle {
+				width: (100% / 3) * 2;
+				height: 100%;
+				font-size: 0;
+				// background-color: black(0.1);
+				text-align: center;
+				float: left;
+
+				&:before {
+					height: 100%;
+					display: inline-block;
+					vertical-align: middle;
+					content: '';
+					margin-right: -0.25em;
+				}
+
+				div#bigarticle-content {
+					width: 100%;
+					background-color: #fff;
+					font-size: 12pt;
+					display: inline-block;
+					vertical-align: middle;
+					position: relative;
+
+					article {
+						text-align: left;
+						margin: 30px;
+
+						h1.blog-title {
+							color: $blue;
+							font: 300 1.8em $base;
+							margin-bottom: 5px;
+						}
+						div.blog-byline {
+							font: 300 1em $base;
+							margin-bottom: 20px;
+						}
+						p {
+							font: 300 0.9em $base;
+							line-height: 1.4em;
+							margin-bottom: 20px;
+						}
+					}
+
+					div#bigarticle-etc {
+						width: 50%;
+						position: absolute;
+						top: 0;
+						right: -50%;
+						
+						div#bigarticle-bubble {
+							position: absolute;
+							padding-top: 30px;
+
+							&:before {
+								width: 0;
+								height: 0;
+								display: block;
+								position: absolute;
+								top: 50px;
+								left: 0;
+								content: ' ';
+								border-top: 20px solid transparent;
+								border-left: 30px solid #fff;
+								border-right: 30px solid transparent;
+								border-bottom: 20px solid transparent;
+							}
+							
+							div.head {
+								width: 80px;
+								height: 80px;
+								background: url('../img/logo-white.png') no-repeat center center;
+								background-size: contain;
+								float: left;
+								margin-left: 50px;
+							}
+							div.text {
+								float: left;
+								margin-left: 20px;
+
+								h1.title {
+									color: #fff;
+									font: 200 4em $base;
+									line-height: 70px;
+									margin-bottom: 60px;
+								}
+							}
+						}
+						h3.moreentries {
+							color: #fff;
+							font: 500 0.9em $base;
+							text-align: left;
+							text-transform: uppercase;
+							letter-spacing: 1px;
+							margin-top: 160px;
+							margin-left: 30px;
+						}
+						ul {
+							list-style-type: none;
+							margin: 20px 0 0;
+							padding: 0;
+
+							li {
+								text-align: left;
+								margin-left: 30px;
+								margin-bottom: 20px;
+
+								a {
+									color: #fff;
+								}
+							}
+						}
+					}
+				}
+			}
+			aside#blogsidebar {
+				width: 33.3333%;
+				float: right;
+				// background-color: black(0.1);
+				padding-top: 200px;
+			}
+		}
 	}
 }
 
-/*  GRID OF TWELVE   ============================================================================= */
 
-.span_12_of_12 { width: 100%; }
-.span_11_of_12 { width: 91.53%; }
-.span_10_of_12 { width: 83.06%; }
-.span_9_of_12  { width: 74.6%; }
-.span_8_of_12  { width: 66.13%; }
-.span_7_of_12  { width: 57.66%;  }
-.span_6_of_12  { width: 49.2%;  }
-.span_5_of_12  { width: 40.73%;  }
-.span_4_of_12  { width: 32.26%;  }
-.span_3_of_12  { width: 23.8%; }
-.span_2_of_12  { width: 15.33%;  }
-.span_1_of_12  { width: 6.86%;  }
 
-/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
-@media only screen and (max-width: 480px) {
-	.span_12_of_12 { width: 100%; }
-	.span_11_of_12 { width: 100%; }
-	.span_10_of_12 { width: 100%; }
-	.span_9_of_12  { width: 100%; }
-	.span_8_of_12  { width: 100%; }
-	.span_7_of_12  { width: 100%; }
-	.span_6_of_12  { width: 100%; }
-	.span_5_of_12  { width: 100%; }
-	.span_4_of_12  { width: 100%; }
-	.span_3_of_12  { width: 100%; }
-	.span_2_of_12  { width: 100%; }
-	.span_1_of_12  { width: 100%; }
+// Contact
+.pane-7 {
+	div#bgmap {
+		width: 100%;
+		height: 100%;
+		background-color: #eee;
+	}
 }
+div#maptooltip {
+	width: 350px;
+	background-color: $logoblue;
+	background-color: hextorgba($logoblue, 0.9);
+	color: #fff;
+	text-shadow: 0 1px 1px black(0.25);
+	margin-top: 20px;
+	padding: 20px 0;
+
+	h1 {
+		font: 500 3em $dosis;
+		margin-bottom: 5px;
+	}
+	address {
+		font: italic 400 1.5em $base;
+		margin-bottom: 30px;
+	}
+	h2 {
+		font: 500 2em $base;
+
+		span {
+			font-weight: 400;
+			font-size: 0.9em;
+			line-height: 0.5em;
+			margin: 0 2px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ==========================================================================

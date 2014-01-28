@@ -11,21 +11,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/video.css">
 		<link rel="stylesheet" href="css/main.css">
 		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+		<script src="js/vendor/video.js"></script>
+		<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=true"></script>
+		<script src="js/vendor/infobox.js"></script>
 	</head>
 	<body>
-		
-		<header id="top" class="detached">
+		<header id="top" class="detached transparent">
 			<div id="top-container">
 				<a href="#" id="top-logo"></a>
 				<nav id="top-nav">
 					<ul>
+						<li><a href="#">WHY SENTI?</a></li>
 						<li><a href="#">FEATURES</a></li>
 						<li><a href="#">PRICING</a></li>
-						<li><a href="#">ABOUT</a></li>
 						<li><a href="#">BLOG</a></li>
 						<li><a href="#">CONTACT</a></li>
+						<li><a href="#">DEMO</a></li>
 					</ul>
 				</nav>
 				<div class="clearfix"></div>
@@ -34,27 +38,74 @@
 		<div id="maincontainer">
 			<section class="pane pane-1">
 				<div class="toptext">
-					<h1>SENTImus MAXimus</h1>
-					<h2>"Some witty text here, a bit more there"</h2>
+					<h1>Evolve and Progress with<br />In-Depth Social Media Monitoring</h1>
+					<!-- <h2>"Some witty text here, a bit more there"</h2> -->
 				</div>
 				<div class="bottombutton">
-					<button>Discover the features</button>
+					<button>FIND OUT HOW</button>
 				</div>
 			</section>
 			<section class="pane pane-2">
+				<video id="senti-vid" class="video-js vjs-default-skin" controls width="100%" height="100%" data-setup='{"autoplay": false}'>
+					<source src="img/video.mp4" type='video/mp4' />
+				</video>
+				<!-- <video class="video-js vjs-default-skin"
+				controls preload="auto" width="100%" height="100%"
+				data-setup='{"example_option":true}'>
+					<source src="img/video.mp4" type='video/mp4' />
+				</video> -->
+			</section>
+			<section class="pane pane-3">
+				Why Senti?
+			</section>
+			<section class="pane pane-4">
 				Features
 			</section>
-			<section class="pane pane-3">
+			<section class="pane pane-5">
 				Pricing
 			</section>
-			<section class="pane pane-3">
-				About
+			<section class="pane pane-6">
+				<div id="blog">
+					<div id="blog-content">
+						<section id="bigarticle">
+							<div id="bigarticle-content">
+								<article>
+									<h1 class="blog-title">Kamusta? We are SENTi</h1>
+									<div class="blog-byline">Posted on November 11, 2013 by Matt Hebrona.</div>
+									<p>There is positive vibe pulsing in our small HQ here in Cubao X, Quezon City. Everyday is an experience as we discover new things and create new ways to understand the Filipino online sentiment.</p>
+									<p>The Filipino language is evolving everyday. We modify and shake it up to adapt to the times. We widely speak English, but we use it in our own way – adding nuances, adding our identities.</p>
+									<p>Here at SENTi we believe that the best way to express oneself is through your lingua franca. It is natural and organic. There is no code switching. It is your primal way of communication.</p>
+								</article>
+								<div id="bigarticle-etc">
+									<div id="bigarticle-bubble">
+										<div class="head"></div>
+										<div class="text">
+											<h1 class="title">Blog</h1>
+										</div>
+									</div>
+									<h3 class="moreentries">Latest Entries</h3>
+									<ul>
+										<li>
+											<a href="#">Lorizzle ipsizzle dolizzle pizzle go to hizzle</a>
+										</li>
+										<li>
+											<a href="#">Boogie nights robot moustache got milk prince barin</a>
+										</li>
+										<li>
+											<a href="#">Oh my God. I didn't even know Smarties made a cereal.</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<aside id="blogsidebar">
+						</aside>
+						<div class="clearfix"></div>
+					</div>
+				</div>
 			</section>
-			<section class="pane pane-3">
-				Blog
-			</section>
-			<section class="pane pane-3">
-				Contact
+			<section class="pane pane-7">
+				<div id="bgmap"></div>
 			</section>
 		</div>		
 

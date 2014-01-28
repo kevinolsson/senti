@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Dosis:300,500|Roboto:500,300);
+@import url(http://fonts.googleapis.com/css?family=Dosis:300,500|Roboto:100,200,300,400,500);
 /* Senti 2014
 */
 /* HTML5reset */
@@ -171,7 +171,8 @@ body, .onepage-wrapper, html {
   padding: 10px;
   width: 4px;
   height: 4px;
-  display: block; }
+  display: block;
+  outline: none; }
 
 .onepage-pagination li a:before {
   content: '';
@@ -242,15 +243,27 @@ header#top {
   width: 100%;
   height: 90px;
   background-color: #4ec3c7;
+  background-color: rgba(78, 195, 199, 0.95);
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2; }
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out; }
   header#top.detached {
-    width: 1020px;
+    width: 1040px;
     top: 30px;
     left: 50%;
-    margin-left: -510px; }
+    margin-left: -520px; }
+  header#top.transparent {
+    background-color: transparent; }
+    header#top.transparent nav#top-nav ul li a {
+      background-color: transparent !important; }
+    header#top.transparent nav#top-nav ul li:last-child a {
+      background-color: rgba(0, 0, 0, 0.2) !important; }
   header#top div#top-container {
     width: 960px;
     display: block !important;
@@ -264,7 +277,8 @@ header#top {
       float: left;
       display: block;
       outline: 0;
-      margin-top: 15px; }
+      margin-top: 15px;
+      margin-left: -10px; }
     header#top div#top-container nav#top-nav {
       float: right;
       margin-left: 60px; }
@@ -273,16 +287,30 @@ header#top {
         header#top div#top-container nav#top-nav ul li a {
           height: 90px;
           color: #fff;
-          font: 300 1.25em "Roboto", sans-serif;
+          font: 300 1.2em "Roboto", sans-serif;
           text-shadow: 0 2px 0 rgba(0, 0, 0, 0);
           line-height: 90px;
-          letter-spacing: 3px;
+          letter-spacing: 1px;
           vertical-align: middle;
           display: block;
-          padding: 0 20px; }
+          padding: 0 15px; }
           header#top div#top-container nav#top-nav ul li a.active, header#top div#top-container nav#top-nav ul li a:hover {
             background-color: rgba(255, 255, 255, 0.1);
             text-shadow: 0 2px 0 rgba(0, 0, 0, 0.05); }
+        header#top div#top-container nav#top-nav ul li:last-child {
+          padding: 0 0 0 20px; }
+          header#top div#top-container nav#top-nav ul li:last-child a {
+            height: 40px;
+            background-color: #00a7bc;
+            color: #fff;
+            font: 400 1.25em "Roboto", sans-serif;
+            letter-spacing: 1px;
+            line-height: 40px;
+            text-align: center;
+            margin: 20px 0;
+            padding: 5px 15px; }
+            header#top div#top-container nav#top-nav ul li:last-child a:hover {
+              background-color: #00a7bc; }
 
 div#maincontainer {
   z-index: 1; }
@@ -293,7 +321,7 @@ div#maincontainer {
     position: relative; }
 
 .pane-1 {
-  background-image: url("../img/hero-bg.jpg"); }
+  background-image: url("../img/hero-bg.png"); }
   .pane-1 div.toptext {
     width: 100%;
     position: absolute;
@@ -301,9 +329,9 @@ div#maincontainer {
     .pane-1 div.toptext h1,
     .pane-1 div.toptext h2 {
       color: #fff;
-      text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2); }
+      text-shadow: 0 3px 2px rgba(0, 0, 0, 0.25); }
     .pane-1 div.toptext h1 {
-      font: 300 6em "Dosis", sans-serif; }
+      font: 300 5em "Dosis", sans-serif; }
     .pane-1 div.toptext h2 {
       font: 300 2.5em "Dosis", sans-serif; }
   .pane-1 div.bottombutton {
@@ -313,14 +341,14 @@ div#maincontainer {
     .pane-1 div.bottombutton button {
       background-color: #00a7bc;
       color: #fff;
-      font: 300 1.5em "Roboto", sans-serif;
+      font: 400 1.2em "Roboto", sans-serif;
       text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-      letter-spacing: 1px;
-      padding: 10px 30px;
+      letter-spacing: 2px;
+      padding: 12px 30px;
       border: none;
-      -webkit-border-radius: 12px;
-      -moz-border-radius: 12px;
-      border-radius: 12px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
       transition: all 0.2s ease-in-out;
       -webkit-transition: all 0.2s ease-in-out;
       -moz-transition: all 0.2s ease-in-out;
@@ -330,116 +358,135 @@ div#maincontainer {
       .pane-1 div.bottombutton button:hover {
         background-color: #00afc5; }
 
-/* ==========================================================================
-   Grid
-   ========================================================================== */
-/*  SECTIONS  ============================================================================= */
-.section {
-  clear: both;
-  padding: 0px;
-  margin: 0px; }
+.pane-6 {
+  background-color: #4ec3c7; }
+  .pane-6 div#blog {
+    width: 100%;
+    height: calc(100% - 150px);
+    padding-top: 100px; }
+    .pane-6 div#blog div#blog-content {
+      width: 960px;
+      height: 100%;
+      max-height: 1000px;
+      margin: 0 auto; }
+      .pane-6 div#blog div#blog-content section#bigarticle {
+        width: 66.66667%;
+        height: 100%;
+        font-size: 0;
+        text-align: center;
+        float: left; }
+        .pane-6 div#blog div#blog-content section#bigarticle:before {
+          height: 100%;
+          display: inline-block;
+          vertical-align: middle;
+          content: '';
+          margin-right: -0.25em; }
+        .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content {
+          width: 100%;
+          background-color: #fff;
+          font-size: 12pt;
+          display: inline-block;
+          vertical-align: middle;
+          position: relative; }
+          .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content article {
+            text-align: left;
+            margin: 30px; }
+            .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content article h1.blog-title {
+              color: #00a7bc;
+              font: 300 1.8em "Roboto", sans-serif;
+              margin-bottom: 5px; }
+            .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content article div.blog-byline {
+              font: 300 1em "Roboto", sans-serif;
+              margin-bottom: 20px; }
+            .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content article p {
+              font: 300 0.9em "Roboto", sans-serif;
+              line-height: 1.4em;
+              margin-bottom: 20px; }
+          .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content div#bigarticle-etc {
+            width: 50%;
+            position: absolute;
+            top: 0;
+            right: -50%; }
+            .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content div#bigarticle-etc div#bigarticle-bubble {
+              position: absolute;
+              padding-top: 30px; }
+              .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content div#bigarticle-etc div#bigarticle-bubble:before {
+                width: 0;
+                height: 0;
+                display: block;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                content: ' ';
+                border-top: 20px solid transparent;
+                border-left: 30px solid #fff;
+                border-right: 30px solid transparent;
+                border-bottom: 20px solid transparent; }
+              .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content div#bigarticle-etc div#bigarticle-bubble div.head {
+                width: 80px;
+                height: 80px;
+                background: url("../img/logo-white.png") no-repeat center center;
+                background-size: contain;
+                float: left;
+                margin-left: 50px; }
+              .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content div#bigarticle-etc div#bigarticle-bubble div.text {
+                float: left;
+                margin-left: 20px; }
+                .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content div#bigarticle-etc div#bigarticle-bubble div.text h1.title {
+                  color: #fff;
+                  font: 200 4em "Roboto", sans-serif;
+                  line-height: 70px;
+                  margin-bottom: 60px; }
+            .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content div#bigarticle-etc h3.moreentries {
+              color: #fff;
+              font: 500 0.9em "Roboto", sans-serif;
+              text-align: left;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              margin-top: 160px;
+              margin-left: 30px; }
+            .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content div#bigarticle-etc ul {
+              list-style-type: none;
+              margin: 20px 0 0;
+              padding: 0; }
+              .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content div#bigarticle-etc ul li {
+                text-align: left;
+                margin-left: 30px;
+                margin-bottom: 20px; }
+                .pane-6 div#blog div#blog-content section#bigarticle div#bigarticle-content div#bigarticle-etc ul li a {
+                  color: #fff; }
+      .pane-6 div#blog div#blog-content aside#blogsidebar {
+        width: 33.3333%;
+        float: right;
+        padding-top: 200px; }
 
-/*  GROUPING  ============================================================================= */
-.group:before,
-.group:after {
-  content: "";
-  display: table; }
+.pane-7 div#bgmap {
+  width: 100%;
+  height: 100%;
+  background-color: #eee; }
 
-.group:after {
-  clear: both; }
+div#maptooltip {
+  width: 350px;
+  background-color: #4ec3c7;
+  background-color: rgba(78, 195, 199, 0.9);
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  padding: 20px 0; }
+  div#maptooltip h1 {
+    font: 500 3em "Dosis", sans-serif;
+    margin-bottom: 5px; }
+  div#maptooltip address {
+    font: italic 400 1.5em "Roboto", sans-serif;
+    margin-bottom: 30px; }
+  div#maptooltip h2 {
+    font: 500 2em "Roboto", sans-serif; }
+    div#maptooltip h2 span {
+      font-weight: 400;
+      font-size: 0.9em;
+      line-height: 0.5em;
+      margin: 0 2px; }
 
-.group {
-  zoom: 1;
-  /* For IE 6/7 (trigger hasLayout) */ }
-
-/*  GRID COLUMN SETUP   ==================================================================== */
-.col {
-  display: block;
-  float: left;
-  margin: 1% 0 1% 1.6%; }
-
-.col:first-child {
-  margin-left: 0; }
-
-/* all browsers except IE6 and lower */
-/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
-@media only screen and (max-width: 480px) {
-  .col {
-    margin: 1% 0 1% 0%; } }
-/*  GRID OF TWELVE   ============================================================================= */
-.span_12_of_12 {
-  width: 100%; }
-
-.span_11_of_12 {
-  width: 91.53%; }
-
-.span_10_of_12 {
-  width: 83.06%; }
-
-.span_9_of_12 {
-  width: 74.6%; }
-
-.span_8_of_12 {
-  width: 66.13%; }
-
-.span_7_of_12 {
-  width: 57.66%; }
-
-.span_6_of_12 {
-  width: 49.2%; }
-
-.span_5_of_12 {
-  width: 40.73%; }
-
-.span_4_of_12 {
-  width: 32.26%; }
-
-.span_3_of_12 {
-  width: 23.8%; }
-
-.span_2_of_12 {
-  width: 15.33%; }
-
-.span_1_of_12 {
-  width: 6.86%; }
-
-/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
-@media only screen and (max-width: 480px) {
-  .span_12_of_12 {
-    width: 100%; }
-
-  .span_11_of_12 {
-    width: 100%; }
-
-  .span_10_of_12 {
-    width: 100%; }
-
-  .span_9_of_12 {
-    width: 100%; }
-
-  .span_8_of_12 {
-    width: 100%; }
-
-  .span_7_of_12 {
-    width: 100%; }
-
-  .span_6_of_12 {
-    width: 100%; }
-
-  .span_5_of_12 {
-    width: 100%; }
-
-  .span_4_of_12 {
-    width: 100%; }
-
-  .span_3_of_12 {
-    width: 100%; }
-
-  .span_2_of_12 {
-    width: 100%; }
-
-  .span_1_of_12 {
-    width: 100%; } }
 /* ==========================================================================
    Helper classes
    ========================================================================== */

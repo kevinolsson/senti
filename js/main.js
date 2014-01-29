@@ -7,7 +7,7 @@ $(function() {
 	$(maincontainer).onepage_scroll({
 		sectionContainer: "section.pane", 
 		easing: "ease",
-		animationTime: 1000,
+		animationTime: 000,
 		pagination: true,
 		updateURL: false,
 		beforeMove: function(index) {
@@ -45,12 +45,22 @@ $(function() {
 	}
 
 
+	// Features
+	$('div.hex').each(function(){
+		var width = $(this).width() / 2;
+		$(this).find('div.topend, div.bottomend').css({
+			'border-left-width': width,
+			'border-right-width': width
+		});
+	});
+
+
 	// Google Maps
 	init_maps();
 
 
 	// Test
-	// $(maincontainer).moveTo(6);
+	$(maincontainer).moveTo(4);
 
 });
 
@@ -63,7 +73,7 @@ function updateState (index) {
 	$('nav#top-nav ul li:nth-child('+ (index - 2) +') a').addClass('active');
 
 	// Make header transparent
-	if (index == 1 || index == 2 || index == 6) {
+	if (index == 1 || index == 2 || index == 4 || index == 6) {
 		$('header#top').addClass('transparent');
 	} else if ($('header#top').hasClass('transparent')) {
 		$('header#top').removeClass('transparent');

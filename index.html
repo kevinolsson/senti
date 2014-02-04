@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/video.css">
 		<link rel="stylesheet" href="css/main.css">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 		<script src="js/vendor/video.js"></script>
 		<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=true"></script>
@@ -22,6 +23,7 @@
 		<header id="top" class="detached transparent">
 			<div id="top-container">
 				<a href="#" id="top-logo"></a>
+				<a href="#" id="top-logo-alt" class="hide"></a>
 				<nav id="top-nav">
 					<ul>
 						<li><a href="#">WHY SENTI?</a></li>
@@ -37,56 +39,67 @@
 		</header>
 		<div id="maincontainer">
 			<section class="pane pane-1">
-				<div class="toptext">
-					<h1>Evolve and Progress with<br />In-Depth Social Media Monitoring</h1>
-					<!-- <h2>"Some witty text here, a bit more there"</h2> -->
-				</div>
-				<div class="bottombutton">
-					<button>FIND OUT HOW</button>
+				<div id="hero">
+					<div class="toptext">
+						<h1>Evolve and Progress with<br />In-Depth Social Media Monitoring</h1>
+					</div>
+					<!-- <div class="bottombutton">
+						<button>FIND OUT HOW</button>
+					</div> -->
+					<div class="screenies-container">
+						<div class="screenies">
+							<div class="screenie-1"></div>
+							<div class="screenie-2"></div>
+						</div>
+					</div>
 				</div>
 			</section>
 			<section class="pane pane-2">
 				<video id="senti-vid" class="video-js vjs-default-skin" controls width="100%" height="100%" data-setup='{"autoplay": false}'>
 					<source src="img/video.mp4" type='video/mp4' />
 				</video>
-				<!-- <video class="video-js vjs-default-skin"
-				controls preload="auto" width="100%" height="100%"
-				data-setup='{"example_option":true}'>
-					<source src="img/video.mp4" type='video/mp4' />
-				</video> -->
 			</section>
 			<section class="pane pane-3">
-				Why Senti?
+				
 			</section>
 			<section class="pane pane-4">
 				<div id="features">
+					<h1 class="title">Features</h1>
 					<div id="features-content">
 						<ul>
 							<li>
 								<div class="hex">
 									<div class="topend"></div>
-									asd
+									<div class="img img-1"></div>
+									<h1>Support for<br />Local Language</h1>
+									<p>Understand your market's sentiments whether written in English, Filipino, or Taglish.</p>
 									<div class="bottomend"></div>
 								</div>
 							</li>
 							<li>
 								<div class="hex">
 									<div class="topend"></div>
-									asd
+									<div class="img img-2"></div>
+									<h1>Real-Time<br />Data</h1>
+									<p>See the live conversations about your brand on SENTi's stream.</p>
 									<div class="bottomend"></div>
 								</div>
 							</li>
 							<li>
 								<div class="hex">
 									<div class="topend"></div>
-									asd
+									<div class="img img-3"></div>
+									<h1>Sentiment<br />Analysis</h1>
+									<p>See the live conversations about your brand on SENTi's stream.</p>
 									<div class="bottomend"></div>
 								</div>
 							</li>
 							<li>
 								<div class="hex">
 									<div class="topend"></div>
-									asd
+									<div class="img img-4"></div>
+									<h1>Visualization</h1>
+									<p>Analyze data</p>
 									<div class="bottomend"></div>
 								</div>
 							</li>
@@ -96,7 +109,53 @@
 				</div>
 			</section>
 			<section class="pane pane-5">
-				Pricing
+				<div id="pricing">
+					<div id="pricing-content">
+						<div id="pricing-details">
+							<h1 class="title">PACKAGE FEATURES</h1>
+							<!-- <h2 class="subtitle">Includes</h2> -->
+							<div id="pricing-table">
+								<div class="row">
+									<div class="item-1">
+										<strong>One</strong><br />License
+									</div>
+									<div class="item-2">
+										<strong>Six</strong> Keywords<br />per Topic
+									</div>
+									<div class="item-3">
+										Report<br />Generation
+									</div>
+								</div>
+								<div class="row">
+									<div class="item-4">
+										Understanding of<br />posts written in<br /><span>English, Tagalog, Taglish, Jejemon, TXT speak</span>
+									</div>
+									<div class="item-5">
+										Customizable dashboard<br /><span>Tag cloud, Unified stream, Analytics</span>
+									</div>
+									<div class="item-6">
+										View all posts on 3 selected channels
+									</div>
+								</div>
+							</div>
+							<div id="pricing-price">
+								<div>
+									<!-- <h1>&#8369; 150k</h1> -->
+									<h1>Php 150k</h1>
+								</div>
+								<div>
+									<h2>3-Month<br />Subscription</h2>
+								</div>
+							</div>
+							<a href="#" class="button buy"><i class="fa fa-shopping-cart"></i>PURCHASE</a>
+							<a href="#" class="button try"><i class="fa fa-heart"></i>REQUEST A DEMO</a>
+							<!-- <a href="#" class="viewaddons">View Addons</a> -->
+							<!-- <div id="pricing-addons">
+								<h1 class="title">ADDONS</h1>
+							</div> -->
+						</div>
+					</div>
+				</div>
 			</section>
 			<section class="pane pane-6">
 				<div id="blog">

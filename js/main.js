@@ -7,7 +7,7 @@ $(function() {
 	$(maincontainer).onepage_scroll({
 		sectionContainer: "section.pane", 
 		easing: "ease",
-		animationTime: 000,
+		animationTime: 1000,
 		pagination: true,
 		updateURL: false,
 		beforeMove: function(index) {
@@ -17,10 +17,13 @@ $(function() {
 			// TO DO: Play vid pagination
 		}
 	});
+	$('.onepage-pagination').css({
+		'margin-top': $('.onepage-pagination').height() / -2
+	});
 
 
 	// Nav
-	$('a#top-logo').click(function(index){
+	$('a#top-logo, a#top-logo-alt').click(function(index){
 		$(maincontainer).moveTo(1);
 		return false;
 	});
@@ -60,7 +63,7 @@ $(function() {
 
 
 	// Test
-	$(maincontainer).moveTo(4);
+	// $(maincontainer).moveTo(5);
 
 });
 
@@ -73,10 +76,32 @@ function updateState (index) {
 	$('nav#top-nav ul li:nth-child('+ (index - 2) +') a').addClass('active');
 
 	// Make header transparent
-	if (index == 1 || index == 2 || index == 4 || index == 6) {
+	if (index < 7) {
 		$('header#top').addClass('transparent');
 	} else if ($('header#top').hasClass('transparent')) {
 		$('header#top').removeClass('transparent');
+	}
+	if (index == 5) {
+		$('header#top').addClass('alt-blue');
+
+		$('a#top-logo-alt').removeClass('hide');
+		if (!$('a#top-logo').hasClass('hide')) {
+			$('a#top-logo').addClass('hide');
+		}
+	} else {
+		$('header#top').removeClass('alt-blue');
+
+		$('a#top-logo').removeClass('hide');
+		if (!$('a#top-logo-alt').hasClass('hide')) {
+			$('a#top-logo-alt').addClass('hide');
+		}
+	}
+
+	// White pagination
+	if (index == 6) {
+		$('.onepage-pagination').addClass('white');
+	} else if ($('.onepage-pagination').hasClass('white')) {
+		$('.onepage-pagination').removeClass('white');
 	}
 
 	// Play/pause video
@@ -104,7 +129,7 @@ function init_maps () {
 		draggable: true,
 		disableDoubleClickZoom: true,
 		scrollwheel: false,
-		zoom: 17,
+		zoom: 16,
 		center: latLng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
@@ -134,7 +159,7 @@ function init_maps () {
 		pixelOffset: new google.maps.Size(-175, 0),
 		zIndex: null,
 		boxStyle: {},
-		closeBoxMargin: "25px 5px 0 0",
+		closeBoxMargin: "35px 5px 0 0",
 		infoBoxClearance: new google.maps.Size(1, 1),
 		isHidden: false,
 		pane: "floatPane",

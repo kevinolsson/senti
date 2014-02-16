@@ -591,7 +591,19 @@ div#maincontainer {
 
 // Front pane
 .pane-1 {
-	background-image: url('../img/hero-bg.png');
+	background-image: url('../img/hero-bg.jpg');
+	
+	&:before {
+		width: 100%;
+		height: 100%;
+		background-color: black(0.6);
+		// background-color: hextorgba($darkblue - #444, 0.4);
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+	}
 	
 	div#hero {
 		width: $fullwidth;
@@ -698,7 +710,73 @@ div#maincontainer {
 
 // Why Senti?
 .pane-3 {
-	// * Hidden *
+	background: $gray url('../img/about-bg.jpg') no-repeat center center;
+	background-size: cover;
+
+	&:before {
+		width: 100%;
+		height: 100%;
+		background-color: black(0.6);
+		// background-color: hextorgba($darkblue - #444, 0.4);
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+	}
+
+	div#about {
+		width: $semifullwidth;
+		min-width: $semifullwidth;
+		height: calc(100% - 100px);
+		position: relative;
+		margin: 0 auto;
+		padding: 100px 0 10px;
+
+		div#about-content {
+			width: 100%;
+			height: 100%;
+			font-size: 0;
+			text-align: center;
+			
+			&:before {
+				height: 100%;
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: -0.25em;
+				content: '';
+			}
+			
+			div#about-writeup {
+				width: 100%;
+				// height: 100%;
+				font-size: 12pt;
+				text-align: center;
+				display: inline-block;
+				vertical-align: middle;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+
+				h1.title {
+					width: 100%;
+					color: #fff;
+					font: 300 4em $dosis;
+					text-align: center;
+					text-shadow: 0 2px 1px black(0.2);
+					display: block;
+					margin: 0 0 40px;
+					padding: 0;
+				}
+				p {
+					color: #fff;
+					font: 300 1em $base;
+					line-height: 1.4em;
+					margin-bottom: 20px;
+				}
+			}
+		}
+	}
 }
 
 
@@ -706,13 +784,25 @@ div#maincontainer {
 
 // Features
 .pane-4 {
-	background: $gray url('../img/features-bg.png') no-repeat center center;
+	background: $gray url('../img/features-bg.jpg') no-repeat center center;
 	background-size: cover;
+
+	&:before {
+		width: 100%;
+		height: 100%;
+		// background-color: black(0.3);
+		background-color: hextorgba($darkblue - #444, 0.4);
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+	}
 
 	div#features {
 		width: $fullwidth;
 		min-width: $fullwidth;
-		height: calc(100% - 180px);
+		height: calc(100% - 100px);
 		position: relative;
 		margin: 0 auto;
 		padding: 170px 0 10px;
@@ -720,7 +810,7 @@ div#maincontainer {
 		h1.title {
 			width: 100%;
 			color: #fff;
-			font: 300 5em $dosis;
+			font: 300 4.5em $dosis;
 			text-align: center;
 			text-shadow: 0 2px 1px black(0.2);
 			display: block;
@@ -755,7 +845,7 @@ div#maincontainer {
 					$hor_offset: 20px;
 					$ver_offset: 0px;
 
-					width: calc(25% - 15px);
+					width: calc(33.33333% - 15px);
 					height: 100%;
 					font-size: 0;
 					display: inline-block;
@@ -781,12 +871,13 @@ div#maincontainer {
 
 					div.hex {
 						$background: black(0.3);
-						$hexheight: 210px;
-						$tailheight: 130px;
+						$hexheight: 240px;
+						$tailheight: 160px;
 
 						width: 100%;
-						height: $hexheight;
-						background-color: $background;
+						// height: $hexheight;
+						height: auto;
+						// background-color: $background;
 						color: #fff;
 						font-size: 12pt;
 						display: inline-block;
@@ -798,7 +889,7 @@ div#maincontainer {
 						div.bottomend {
 							width: 0;
 							height: 0;
-							display: block !important;
+							display: none !important;
 							position: absolute;
 							content: '';
 							left: 0;
@@ -832,13 +923,15 @@ div#maincontainer {
 							}
 						}
 						h1 {
-							font: 300 1.75em $base;
+							font: 300 2em $base;
 							line-height: 1.2em;
 							text-shadow: 0 1px 1px black(0.2);
+							margin: 20px 0 30px;
 						}
 						p {
 							margin: 10px 20px;
-							font: 400 1em $base;
+							font: 400 0.85em $base;
+							line-height: 1.5em;
 							text-shadow: 0 1px 1px black(0.2);
 						}
 					}
@@ -856,12 +949,12 @@ div#maincontainer {
 	background-color: #f7f7f7;
 
 	div#pricing {
-		width: $semifullwidth;
-		min-width: $semifullwidth;
+		width: $fullwidth;
+		min-width: $fullwidth;
 		height: calc(100% - 190px);
 		position: relative;
 		margin: 0 auto;
-		padding: 140px 0 0;
+		padding: 120px 0 0;
 
 		div#pricing-content {
 			width: 100%;
@@ -880,6 +973,7 @@ div#maincontainer {
 			
 			div#pricing-details {
 				width: 100%;
+				// width: 800px;
 				font-size: 12pt;
 				text-align: center;
 				display: inline-block;
@@ -900,8 +994,8 @@ div#maincontainer {
 				}
 				h1.title {
 					color: $blue;
-					font: 300 1.5em $base;
-					text-transform: uppercase;
+					font: 300 2em $dosis;
+					// text-transform: uppercase;
 					letter-spacing: 2px;
 					word-spacing: 5px;
 				}
@@ -912,12 +1006,13 @@ div#maincontainer {
 					letter-spacing: 2px;
 				}
 				div#pricing-table {
-					width: calc(100% - 8px);
+					// width: calc(100% - 8px);
+					width: 800px;
 					display: table;
 					// border: 4px solid $logoblue;
 					border-collapse: separate;
-					border-spacing: 4px;
-					margin: 20px auto 20px;
+					border-spacing: 15px;
+					margin: 0px auto 20px;
 
 					div.row {
 						width: 100%;
@@ -928,16 +1023,20 @@ div#maincontainer {
 						div[class^='item'] {
 							width: 33.33333333%;
 							height: 100%;
-							background-color: #fafafa;
+							// background-color: #B8E7E9;
+							background-color: #fff;
+							// background-color: $logoblue;
+							// background-color: #fafafa;
+							// color: #fff;
 							color: $blue;
-							font: 300 1.4em $base;
+							font: 300 1.2em $base;
 							display: table-cell;
 							vertical-align: middle;
-							// border-bottom: 4px solid $logoblue;
-							padding: 15px 30px;
-							// @include boxshadow((
-							// 	0 5px 5px black(0.05)
-							// ));
+							border-bottom: 4px solid $logoblue;
+							padding: 10px 30px;
+							@include boxshadow((
+								0 5px 5px black(0.05)
+							));
 
 							&:not(:last-child) {
 								margin-right: 15px;
@@ -963,8 +1062,8 @@ div#maincontainer {
 				div#pricing-price {
 					text-align: center;
 					color: $blue;
-					margin-top: 10px;
-					margin-bottom: 20px;
+					// margin-top: 10px;
+					margin-bottom: 10px;
 					
 					div {
 						height: 60px;
@@ -990,8 +1089,45 @@ div#maincontainer {
 					}
 				}
 				div#pricing-addons {
-					div.title {
-						font-size: 1.5em;
+					margin-bottom: 30px;
+
+					h1 {
+						color: $blue;
+						font: 400 1.5em $dosis;
+					}
+					ul {
+						text-align: center;
+						margin: 10px auto 0;
+						padding: 0;
+						list-style-type: none;
+
+						li {
+							display: inline-block;
+							clear: both;
+							@include boxshadow((
+								0 5px 5px black(0.05)
+							));
+
+							&:not(:last-child) {
+								margin-right: 20px;
+							} 
+							
+							div {
+								float: left;
+								font-size: 1.2em;
+								padding: 8px 15px;
+							}
+							div:first-child {
+								background-color: #fff;
+								color: $logoblue;
+								padding: 8px 15px;
+							}
+							div:last-child {
+								background-color: $logoblue;
+								color: #fff;
+								padding: 8px 10px;
+							}
+						}
 					}
 				}
 				a.button {

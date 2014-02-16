@@ -49,13 +49,7 @@ $(function() {
 
 
 	// Features
-	$('div.hex').each(function(){
-		var width = $(this).width() / 2;
-		$(this).find('div.topend, div.bottomend').css({
-			'border-left-width': width,
-			'border-right-width': width
-		});
-	});
+	fix_hex();
 
 
 	// Google Maps
@@ -63,7 +57,13 @@ $(function() {
 
 
 	// Test
-	// $(maincontainer).moveTo(5);
+	// $(maincontainer).moveTo(3);
+
+});
+
+
+// Window resize
+$(window).resize(function(){
 
 });
 
@@ -113,6 +113,34 @@ function updateState (index) {
 			videoPlayer.pause();
 		}
 	}
+}
+
+
+// Features hex size
+function fix_hex () {
+
+	// Hex tails
+	$('div.hex').each(function(){
+		var width = $(this).width() / 2;
+		$(this).find('div.topend, div.bottomend').css({
+			'border-left-width': width,
+			'border-right-width': width
+		});
+	});
+
+	// Hex height
+	var maxheight = 0;
+	$('div.hex').each(function(){
+		if ($(this).height() > maxheight) {
+			maxheight = $(this).height();
+		}
+	});
+	$('div.hex').each(function(){
+		if ($(this).height() != maxheight) {
+			$(this).height(maxheight);
+		}
+	});
+
 }
 
 

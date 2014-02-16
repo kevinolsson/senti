@@ -352,7 +352,16 @@ div#maincontainer {
     position: relative; }
 
 .pane-1 {
-  background-image: url("../img/hero-bg.png"); }
+  background-image: url("../img/hero-bg.jpg"); }
+  .pane-1:before {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: ''; }
   .pane-1 div#hero {
     width: 1140px;
     height: 100%;
@@ -425,20 +434,83 @@ div#maincontainer {
         z-index: 1;
         opacity: 0.9; }
 
-.pane-4 {
-  background: #f7f7f7 url("../img/features-bg.png") no-repeat center center;
+.pane-3 {
+  background: #f7f7f7 url("../img/about-bg.jpg") no-repeat center center;
   background-size: cover; }
+  .pane-3:before {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: ''; }
+  .pane-3 div#about {
+    width: 960px;
+    min-width: 960px;
+    height: calc(100% - 100px);
+    position: relative;
+    margin: 0 auto;
+    padding: 100px 0 10px; }
+    .pane-3 div#about div#about-content {
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+      text-align: center; }
+      .pane-3 div#about div#about-content:before {
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: -0.25em;
+        content: ''; }
+      .pane-3 div#about div#about-content div#about-writeup {
+        width: 100%;
+        font-size: 12pt;
+        text-align: center;
+        display: inline-block;
+        vertical-align: middle;
+        list-style-type: none;
+        margin: 0;
+        padding: 0; }
+        .pane-3 div#about div#about-content div#about-writeup h1.title {
+          width: 100%;
+          color: #fff;
+          font: 300 4em "Dosis", "Helvetica", sans-serif;
+          text-align: center;
+          text-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+          display: block;
+          margin: 0 0 40px;
+          padding: 0; }
+        .pane-3 div#about div#about-content div#about-writeup p {
+          color: #fff;
+          font: 300 1em "Roboto", "Helvetica", sans-serif;
+          line-height: 1.4em;
+          margin-bottom: 20px; }
+
+.pane-4 {
+  background: #f7f7f7 url("../img/features-bg.jpg") no-repeat center center;
+  background-size: cover; }
+  .pane-4:before {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 57, 73, 0.4);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: ''; }
   .pane-4 div#features {
     width: 1140px;
     min-width: 1140px;
-    height: calc(100% - 180px);
+    height: calc(100% - 100px);
     position: relative;
     margin: 0 auto;
     padding: 170px 0 10px; }
     .pane-4 div#features h1.title {
       width: 100%;
       color: #fff;
-      font: 300 5em "Dosis", "Helvetica", sans-serif;
+      font: 300 4.5em "Dosis", "Helvetica", sans-serif;
       text-align: center;
       text-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
       display: block;
@@ -465,7 +537,7 @@ div#maincontainer {
         margin: 0;
         padding: 0; }
         .pane-4 div#features div#features-content ul li {
-          width: calc(25% - 15px);
+          width: calc(33.33333% - 15px);
           height: 100%;
           font-size: 0;
           display: inline-block;
@@ -484,8 +556,7 @@ div#maincontainer {
             content: ''; }
           .pane-4 div#features div#features-content ul li div.hex {
             width: 100%;
-            height: 210px;
-            background-color: rgba(0, 0, 0, 0.3);
+            height: auto;
             color: #fff;
             font-size: 12pt;
             display: inline-block;
@@ -496,7 +567,7 @@ div#maincontainer {
             .pane-4 div#features div#features-content ul li div.hex div.bottomend {
               width: 0;
               height: 0;
-              display: block !important;
+              display: none !important;
               position: absolute;
               content: '';
               left: 0;
@@ -504,13 +575,13 @@ div#maincontainer {
               border-right: 0 solid transparent;
               z-index: -1; }
             .pane-4 div#features div#features-content ul li div.hex div.topend {
-              top: -130px;
-              border-top: 65px solid transparent;
-              border-bottom: 65px solid rgba(0, 0, 0, 0.3); }
+              top: -160px;
+              border-top: 80px solid transparent;
+              border-bottom: 80px solid rgba(0, 0, 0, 0.3); }
             .pane-4 div#features div#features-content ul li div.hex div.bottomend {
-              bottom: -130px;
-              border-top: 65px solid rgba(0, 0, 0, 0.3);
-              border-bottom: 65px solid transparent; }
+              bottom: -160px;
+              border-top: 80px solid rgba(0, 0, 0, 0.3);
+              border-bottom: 80px solid transparent; }
             .pane-4 div#features div#features-content ul li div.hex div.img {
               width: 80px;
               height: 80px;
@@ -528,23 +599,25 @@ div#maincontainer {
               .pane-4 div#features div#features-content ul li div.hex div.img.img-4 {
                 background-image: url("../img/features-4.png"); }
             .pane-4 div#features div#features-content ul li div.hex h1 {
-              font: 300 1.75em "Roboto", "Helvetica", sans-serif;
+              font: 300 2em "Roboto", "Helvetica", sans-serif;
               line-height: 1.2em;
-              text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+              text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+              margin: 20px 0 30px; }
             .pane-4 div#features div#features-content ul li div.hex p {
               margin: 10px 20px;
-              font: 400 1em "Roboto", "Helvetica", sans-serif;
+              font: 400 0.85em "Roboto", "Helvetica", sans-serif;
+              line-height: 1.5em;
               text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
 
 .pane-5 {
   background-color: #f7f7f7; }
   .pane-5 div#pricing {
-    width: 960px;
-    min-width: 960px;
+    width: 1140px;
+    min-width: 1140px;
     height: calc(100% - 190px);
     position: relative;
     margin: 0 auto;
-    padding: 140px 0 0; }
+    padding: 120px 0 0; }
     .pane-5 div#pricing div#pricing-content {
       width: 100%;
       height: 100%;
@@ -576,8 +649,7 @@ div#maincontainer {
           padding: 0; }
         .pane-5 div#pricing div#pricing-content div#pricing-details h1.title {
           color: #00a7bc;
-          font: 300 1.5em "Roboto", "Helvetica", sans-serif;
-          text-transform: uppercase;
+          font: 300 2em "Dosis", "Helvetica", sans-serif;
           letter-spacing: 2px;
           word-spacing: 5px; }
         .pane-5 div#pricing div#pricing-content div#pricing-details h2.subtitle {
@@ -586,11 +658,11 @@ div#maincontainer {
           text-transform: uppercase;
           letter-spacing: 2px; }
         .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-table {
-          width: calc(100% - 8px);
+          width: 800px;
           display: table;
           border-collapse: separate;
-          border-spacing: 4px;
-          margin: 20px auto 20px; }
+          border-spacing: 15px;
+          margin: 0px auto 20px; }
           .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-table div.row {
             width: 100%;
             display: table-row;
@@ -598,12 +670,15 @@ div#maincontainer {
             .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-table div.row div[class^='item'] {
               width: 33.33333333%;
               height: 100%;
-              background-color: #fafafa;
+              background-color: #fff;
               color: #00a7bc;
-              font: 300 1.4em "Roboto", "Helvetica", sans-serif;
+              font: 300 1.2em "Roboto", "Helvetica", sans-serif;
               display: table-cell;
               vertical-align: middle;
-              padding: 15px 30px; }
+              border-bottom: 4px solid #4ec3c7;
+              padding: 10px 30px;
+              box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
+              -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05); }
               .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-table div.row div[class^='item']:not(:last-child) {
                 margin-right: 15px; }
               .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-table div.row div[class^='item'] strong {
@@ -618,8 +693,7 @@ div#maincontainer {
         .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-price {
           text-align: center;
           color: #00a7bc;
-          margin-top: 10px;
-          margin-bottom: 20px; }
+          margin-bottom: 10px; }
           .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-price div {
             height: 60px;
             font-size: 1.2em;
@@ -637,8 +711,35 @@ div#maincontainer {
               font: 300 1em "Roboto", "Helvetica", sans-serif;
               line-height: 1.2em;
               letter-spacing: 2px; }
-        .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons div.title {
-          font-size: 1.5em; }
+        .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons {
+          margin-bottom: 30px; }
+          .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons h1 {
+            color: #00a7bc;
+            font: 400 1.5em "Dosis", "Helvetica", sans-serif; }
+          .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons ul {
+            text-align: center;
+            margin: 10px auto 0;
+            padding: 0;
+            list-style-type: none; }
+            .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons ul li {
+              display: inline-block;
+              clear: both;
+              box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
+              -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05); }
+              .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons ul li:not(:last-child) {
+                margin-right: 20px; }
+              .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons ul li div {
+                float: left;
+                font-size: 1.2em;
+                padding: 8px 15px; }
+              .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons ul li div:first-child {
+                background-color: #fff;
+                color: #4ec3c7;
+                padding: 8px 15px; }
+              .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons ul li div:last-child {
+                background-color: #4ec3c7;
+                color: #fff;
+                padding: 8px 10px; }
         .pane-5 div#pricing div#pricing-content div#pricing-details a.button {
           background-color: #4ec3c7;
           color: #fff;

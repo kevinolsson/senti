@@ -230,7 +230,12 @@ body.disabled-onepage-scroll, .disabled-onepage-scroll .onepage-wrapper, html {
   padding: 0; }
 
 body {
-  font-family: "Roboto", "Helvetica", sans-serif; }
+  background-color: #000;
+  font-family: "Roboto", "Helvetica", sans-serif;
+  transition: background 1s ease-in-out;
+  -webkit-transition: background 1s ease-in-out;
+  -moz-transition: background 1s ease-in-out;
+  -o-transition: background 1s ease-in-out; }
 
 html,
 body {
@@ -244,6 +249,21 @@ a {
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out; }
+
+.verticalcenter, div#demopane {
+  font-size: 0;
+  text-align: center; }
+  .verticalcenter:before, div#demopane:before {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: -0.25em;
+    content: ''; }
+
+.verticalcentered, div#demopane div#demopane-content {
+  font-size: 12pt;
+  display: inline-block;
+  vertical-align: middle; }
 
 header#top {
   width: 100%;
@@ -494,7 +514,7 @@ div#maincontainer {
   .pane-4:before {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 57, 73, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     display: block;
     position: absolute;
     top: 0;
@@ -892,6 +912,62 @@ div#maptooltip {
       font-size: 0.9em;
       line-height: 0.5em;
       margin: 0 2px; }
+
+div#demopane {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+  -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0); }
+  div#demopane div.overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1; }
+  div#demopane div#demopane-content {
+    max-width: 400px;
+    z-index: 2; }
+    div#demopane div#demopane-content h1, div#demopane div#demopane-content h2 {
+      color: #fff;
+      padding: 0; }
+    div#demopane div#demopane-content h1 {
+      font: 400 3em "Roboto", "Helvetica", sans-serif;
+      margin: 0 0 20px; }
+    div#demopane div#demopane-content h2 {
+      font: 300 1.5em "Roboto", "Helvetica", sans-serif;
+      margin: 0 0 30px; }
+    div#demopane div#demopane-content input[type="text"] {
+      width: 250px;
+      color: #222;
+      font: 300 1.2em "Roboto", "Helvetica", sans-serif;
+      text-align: center;
+      display: block;
+      margin: 0 auto 15px;
+      padding: 6px 15px;
+      border: none;
+      outline: none !important;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); }
+    div#demopane div#demopane-content input[type="submit"] {
+      color: #fff;
+      background-color: #4ec3c7;
+      font: 400 1.2em "Roboto", "Helvetica", sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: block;
+      margin: 30px auto 0;
+      padding: 10px 20px;
+      border: none;
+      outline: none;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); }
 
 /* ==========================================================================
    Helper classes

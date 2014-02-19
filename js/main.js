@@ -56,6 +56,34 @@ $(function() {
 	init_maps();
 
 
+	// Demo
+	var Vague = $('#maincontainer, #top').Vague({
+		intensity:      5,      // Blur Intensity
+		forceSVGUrl:    false   // Force absolute path to the SVG filter
+	});
+
+	var demopane = $('div#demopane');
+	$('nav#top-nav ul li:last-child a').click(function(){
+		if (!demopane.hasClass('visible')) {
+			demopane.addClass('visible');
+			demopane.fadeIn(500);
+			// demopane.css({'display':'block'});
+			// demopane.animate({
+			// 	'opacity': 1
+			// });
+			Vague.blur();
+		}
+	});
+	$('div#demopane .overlay').click(function(){
+		demopane.removeClass('visible');
+		demopane.fadeOut(500);
+		// demopane.animate({
+		// 	'opacity': 0
+		// });
+		Vague.unblur();
+	});
+
+
 	// Test
 	// $(maincontainer).moveTo(3);
 
@@ -95,6 +123,15 @@ function updateState (index) {
 		if (!$('a#top-logo-alt').hasClass('hide')) {
 			$('a#top-logo-alt').addClass('hide');
 		}
+	}
+
+	// Background color (for blur)
+	if (index <= 4) {
+		$('body').css('background-color', '#000');
+	} else if (index == 6) {
+		$('body').css('background-color', '#4EC3C7');
+	} else {
+		$('body').css('background-color', '#FFF');
 	}
 
 	// White pagination

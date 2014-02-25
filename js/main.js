@@ -58,7 +58,7 @@ $(function() {
 
 	// Demo
 	var Vague = $('#maincontainer, #top').Vague({
-		intensity:      5,      // Blur Intensity
+		intensity:      10,      // Blur Intensity
 		forceSVGUrl:    false   // Force absolute path to the SVG filter
 	});
 
@@ -85,7 +85,7 @@ $(function() {
 
 
 	// Test
-	// $(maincontainer).moveTo(3);
+	// $(maincontainer).moveTo(5);
 
 });
 

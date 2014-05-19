@@ -202,7 +202,7 @@ function init_blog () {
 			var etc = $('#bigarticle-etc ul');
 			etc.html('');
 			for (var i = 1; i < limit; i++) {
-				etc.append('<li><a href="#">' + articles[i].title +'</a></li>')
+				etc.append('<li><a href="' + articles[i].link + '" target="_blank">' + articles[i].title +'</a></li>')
 			}
 		},
 		error: function (data) {

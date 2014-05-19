@@ -697,8 +697,8 @@ div#maincontainer {
               vertical-align: middle;
               border-bottom: 4px solid #4ec3c7;
               padding: 10px 30px;
-              box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
-              -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05); }
+              box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+              -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05); }
               .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-table div.row div[class^='item']:not(:last-child) {
                 margin-right: 15px; }
               .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-table div.row div[class^='item'] strong {
@@ -750,8 +750,8 @@ div#maincontainer {
             .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons ul li {
               display: inline-block;
               clear: both;
-              box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
-              -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05); }
+              box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+              -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05); }
               .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons ul li:not(:last-child) {
                 margin-right: 20px; }
               .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons ul li div {
@@ -760,7 +760,7 @@ div#maincontainer {
                 padding: 8px 15px; }
               .pane-5 div#pricing div#pricing-content div#pricing-details div#pricing-addons ul li div:first-child {
                 background-color: #fff;
-                color: #4ec3c7;
+                color: #00a7bc;
                 padding: 8px 15px; }
         .pane-5 div#pricing div#pricing-content div#pricing-details a.button {
           background-color: #4ec3c7;
@@ -769,7 +769,16 @@ div#maincontainer {
           display: inline-block;
           text-transform: uppercase;
           letter-spacing: 2px;
-          padding: 15px 20px; }
+          padding: 15px 20px 20px;
+          box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0);
+          -webkit-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0);
+          transition: all 0.2s ease-in-out;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out; }
+          .pane-5 div#pricing div#pricing-content div#pricing-details a.button:hover {
+            box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0.1);
+            -webkit-box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0.1); }
           .pane-5 div#pricing div#pricing-content div#pricing-details a.button i.fa {
             margin-right: 15px; }
           .pane-5 div#pricing div#pricing-content div#pricing-details a.button.buy {
@@ -930,46 +939,52 @@ div#demopane {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: -1; }
   div#demopane div#demopane-content {
     max-width: 400px;
+    background-color: #fafafa;
+    padding: 30px 40px 40px;
     z-index: 2; }
     div#demopane div#demopane-content h1, div#demopane div#demopane-content h2 {
-      color: #fff;
-      padding: 0;
-      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+      color: #007d8d;
+      padding: 0; }
     div#demopane div#demopane-content h1 {
-      font: 400 3em "Roboto", "Helvetica", sans-serif;
-      margin: 0 0 20px; }
+      font: 400 3em "Dosis", "Helvetica", sans-serif;
+      margin: 0 0 10px; }
     div#demopane div#demopane-content h2 {
-      font: 400 1.5em "Roboto", "Helvetica", sans-serif;
+      font: 400 1.2em "Roboto", "Helvetica", sans-serif;
       margin: 0 0 30px; }
-    div#demopane div#demopane-content input[type="text"] {
-      width: 250px;
+    div#demopane div#demopane-content input[type="text"],
+    div#demopane div#demopane-content textarea {
+      width: 300px;
       color: #222;
       font: 300 1.2em "Roboto", "Helvetica", sans-serif;
       text-align: center;
       display: block;
       margin: 0 auto 15px;
-      padding: 6px 15px;
+      padding: 12px 15px;
       border: none;
       outline: none !important;
-      box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
-      -webkit-box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2); }
+      border-bottom: 2px solid #4ec3c7;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); }
+    div#demopane div#demopane-content textarea {
+      text-align: left;
+      font-size: 1em;
+      min-height: 100px;
+      max-height: 100px; }
     div#demopane div#demopane-content input[type="submit"] {
       color: #fff;
       background-color: #4ec3c7;
-      font: 400 1.2em "Roboto", "Helvetica", sans-serif;
+      font: 500 1.4em "Roboto", "Helvetica", sans-serif;
       letter-spacing: 2px;
       text-transform: uppercase;
       display: block;
       margin: 30px auto 0;
-      padding: 10px 20px;
+      padding: 10px 30px;
       border: none;
-      outline: none;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
+      outline: none; }
 
 /* ==========================================================================
    Helper classes

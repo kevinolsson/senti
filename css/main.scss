@@ -1055,7 +1055,7 @@ div#maincontainer {
 							border-bottom: 4px solid $logoblue;
 							padding: 10px 30px;
 							@include boxshadow((
-								0 5px 5px black(0.05)
+								0 2px 3px black(0.05)
 							));
 
 							&:not(:last-child) {
@@ -1132,7 +1132,7 @@ div#maincontainer {
 							display: inline-block;
 							clear: both;
 							@include boxshadow((
-								0 5px 5px black(0.05)
+								0 2px 3px black(0.05)
 							));
 
 							&:not(:last-child) {
@@ -1146,7 +1146,7 @@ div#maincontainer {
 							}
 							div:first-child {
 								background-color: #fff;
-								color: $logoblue;
+								color: $blue;
 								padding: 8px 15px;
 							}
 							// div:last-child {
@@ -1165,7 +1165,19 @@ div#maincontainer {
 					// text-shadow: 0 -1px 0 black(0.1);
 					text-transform: uppercase;
 					letter-spacing: 2px;
-					padding: 15px 20px;
+					padding: 15px 20px 20px;
+					@include boxshadow((
+						inset 0 -5px 0 0 black(0.1),
+						inset 0 0 0 100px white(0)
+					));
+					@include transition(all 0.2s ease-in-out);
+
+					&:hover {
+						@include boxshadow((
+							inset 0 -4px 0 0 black(0.1),
+							inset 0 0 0 100px white(0.1)
+						));
+					}
 					
 					i.fa {
 						margin-right: 15px;
@@ -1404,57 +1416,67 @@ div#demopane {
 		position: fixed;
 		top: 0;
 		left: 0;
-		background-color: black(0.4);
+		background-color: black(0.5);
 		z-index: -1;
 	}
 
 	div#demopane-content {
 		@extend .verticalcentered;
 		max-width: 400px;
+		background-color: #fafafa;
+		padding: 30px 40px 40px;
 		z-index: 2;
 		
 		h1, h2 {
-			color: #fff;
+			color: $darkblue;
 			padding: 0;
-			text-shadow: 0 1px 1px black(0.2);
+			// text-shadow: 0 1px 1px black(0.2);
 		}
 		h1 {
-			font: 400 3em $base;
-			margin: 0 0 20px;
+			font: 400 3em $dosis;
+			margin: 0 0 10px;
 		}
 		h2 {
-			font: 400 1.5em $base;
+			font: 400 1.2em $base;
 			margin: 0 0 30px;
 		}
-		input[type="text"] {
-			width: 250px;
+		input[type="text"],
+		textarea {
+			width: 300px;
 			color: #222;
 			font: 300 1.2em $base;
 			text-align: center;
 			display: block;
 			margin: 0 auto 15px;
-			padding: 6px 15px;
+			padding: 12px 15px;
 			border: none;
 			outline: none !important;
+			border-bottom: 2px solid $logoblue;
 			@include boxshadow((
-				inset 0 2px 1px black(0.1),
-				0 2px 4px black(0.2)
+				// inset 0 2px 1px black(0.1),
+				0 2px 4px black(0.05)
 			));
+		}
+		textarea {
+			text-align: left;
+			font-size: 1em;
+			min-height: 100px;
+			max-height: 100px;
 		}
 		input[type="submit"] {
 			color: #fff;
 			background-color: $logoblue;
-			font: 400 1.2em $base;
+			font: 500 1.4em $base;
 			letter-spacing: 2px;
 			text-transform: uppercase;
 			display: block;
 			margin: 30px auto 0;
-			padding: 10px 20px;
+			padding: 10px 30px;
 			border: none;
 			outline: none;
-			@include boxshadow((
-				0 2px 4px black(0.2)
-			));
+			// @include boxshadow((
+			// 	0 2px 4px black(0.2)
+			// ));
 		}
 	}
 }

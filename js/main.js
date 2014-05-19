@@ -2,7 +2,6 @@ $(function() {
 
 	var maincontainer = "#maincontainer";
 
-
 	// Initialize one page scroll
 	$(maincontainer).onepage_scroll({
 		sectionContainer: "section.pane", 
@@ -17,6 +16,7 @@ $(function() {
 			// TO DO: Play vid pagination
 		}
 	});
+	// Vertically center button things on the side
 	$('.onepage-pagination').css({
 		'margin-top': $('.onepage-pagination').height() / -2
 	});
@@ -52,40 +52,21 @@ $(function() {
 	fix_hex();
 
 
+	// Blog
+	init_blog();
+
+
+	// Form
+	init_form();
+
+
 	// Google Maps
-	init_maps();
-
-
-	// Demo
-	var Vague = $('#maincontainer, #top').Vague({
-		intensity:      10,      // Blur Intensity
-		forceSVGUrl:    false   // Force absolute path to the SVG filter
-	});
-
-	var demopane = $('div#demopane');
-	$('nav#top-nav ul li:last-child a').click(function(){
-		if (!demopane.hasClass('visible')) {
-			demopane.addClass('visible');
-			demopane.fadeIn(500);
-			// demopane.css({'display':'block'});
-			// demopane.animate({
-			// 	'opacity': 1
-			// });
-			Vague.blur();
-		}
-	});
-	$('div#demopane .overlay').click(function(){
-		demopane.removeClass('visible');
-		demopane.fadeOut(500);
-		// demopane.animate({
-		// 	'opacity': 0
-		// });
-		Vague.unblur();
-	});
+	// init_maps();
 
 
 	// Test
-	// $(maincontainer).moveTo(5);
+	// $(maincontainer).moveTo(6);
+
 
 });
 
@@ -178,6 +159,124 @@ function fix_hex () {
 		}
 	});
 
+}
+
+
+// Blog
+function init_blog () {
+	$.ajax({
+		type: 'GET',
+		// url: 'http://senti.com.ph/blog/?feed=rss2',
+		url: 'http://localhost/senti/blog.xml',
+		dataType: 'xml',
+		success: function (data) {
+			var limit = 4;
+			var articles = [];
+
+			$(data).find('item').each(function () {
+				var item = $(this);
+
+				if (articles.length < limit) {
+					var date = Date.parse(item.find('pubDate').text());
+
+					articles.push({
+						'title': item.find('title').text(),
+						'link': item.find('link').text(),
+						'date': date.toString('MMMM d, yyyy'),
+						'creator': item.find('creator').text(),
+						'text': item.find('description').text(),
+					});
+				}
+			});
+
+			// Populate
+			var blogblock = $('#bigarticle-content');
+
+			// Put first
+			var articleblock = blogblock.find('article');
+			articleblock.html('<h1 class="blog-title">' + articles[0].title + "</h1>");
+			articleblock.append('<div class="blog-byline">' + 'Posted on ' + articles[0].date + ' by ' + articles[0].creator + '</div>');
+			articleblock.append('<p>' + articles[0].text + '</p>')
+
+			// Next 3
+			var etc = $('#bigarticle-etc ul');
+			etc.html('');
+			for (var i = 1; i < limit; i++) {
+				etc.append('<li><a href="#">' + articles[i].title +'</a></li>')
+			}
+		},
+		error: function (data) {
+			// TODO
+			console.log("error lol");
+		}
+	});
+}
+
+
+// Forms
+function init_form () {
+	// TO DO: Refactor "#demopane"
+	// TO DO: Make the form work
+	var demopane = $('div#demopane');
+	var demopane_text = [
+		[
+			"Try Senti!",
+			"Tell us who you are and we'll let you know when you can start your trial!"
+		],
+		[
+			"Talk to us!",
+			"We wanna hear you out. We'll get back to you as soon as we can!"
+		],
+		[
+			"Ask for a Quote",
+			"Let us help you in your business. We'll send you a quote for our services!"
+		]
+	];
+	
+	// Try
+	$('nav#top-nav ul li:last-child a, .pane-5 .button.try').click(function(){
+		if (!demopane.hasClass('visible')) {
+			demopane.addClass('visible');
+			demopane.fadeIn(500);
+			demopane.find('h1').html(demopane_text[0][0]);
+			demopane.find('h2').html(demopane_text[0][1]);
+			demopane.find('input[name="company"]').show();
+			demopane.find('textarea').hide();
+			// Blur
+			// $('#maincontainer, #top').Vague({
+			// 	intensity:      10,      // Blur Intensity
+			// 	forceSVGUrl:    false   // Force absolute path to the SVG filter
+			// }).blur();
+		}
+	});
+	// Contact
+	$('nav#top-nav ul li:nth-child(5) a').click(function(){
+		if (!demopane.hasClass('visible')) {
+			demopane.addClass('visible');
+			demopane.fadeIn(500);
+			demopane.find('h1').html(demopane_text[1][0]);
+			demopane.find('h2').html(demopane_text[1][1]);
+			demopane.find('input[name="company"]').hide();
+			demopane.find('textarea').show();
+		}
+	});
+	// Ask quote
+	$('.pane-5 .button.buy').click(function(){
+		if (!demopane.hasClass('visible')) {
+			demopane.addClass('visible');
+			demopane.fadeIn(500);
+			demopane.find('h1').html(demopane_text[2][0]);
+			demopane.find('h2').html(demopane_text[2][1]);
+			demopane.find('input[name="company"]').show();
+			demopane.find('textarea').hide();
+		}
+	});
+	// Hide the pane
+	$('div#demopane .overlay').click(function(){
+		demopane.removeClass('visible');
+		demopane.fadeOut(500);
+		// Vague.unblur();
+	});
 }
 
 

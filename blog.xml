@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Senti</title>
+	<atom:link href="http://senti.com.ph/blog/?feed=rss2" rel="self" type="application/rss+xml" />
+	<link>http://senti.com.ph/blog</link>
+	<description></description>
+	<lastBuildDate>Mon, 19 May 2014 14:01:57 +0000</lastBuildDate>
+	<language>en-US</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.9.1</generator>
+	<item>
+		<title>Most talked about shows for April 2014</title>
+		<link>http://senti.com.ph/blog/?p=18&#038;utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=most-talked-about-shows-for-april-2014</link>
+		<comments>http://senti.com.ph/blog/?p=18#comments</comments>
+		<pubDate>Mon, 19 May 2014 13:58:27 +0000</pubDate>
+		<dc:creator><![CDATA[Ralph Regalado]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://senti.com.ph/blog/?p=18</guid>
+		<description><![CDATA[Which shows we talked about in Twitter last April 2014? This infographic shows you the TV shows/series, concerts, movies and YouTube video prominent in the social media last month. Were you able to catch any of them?]]></description>
+				<content:encoded><![CDATA[<p>Which shows we talked about in Twitter last April 2014?  This infographic shows you the TV shows/series, concerts, movies and YouTube video prominent in the social media last month.  Were you able to catch any of them?</p>
+<p><img src="http://senti.com.ph/blog/wp-content/uploads/2014/05/SENTI-Most-Talked-About-Shows-April-2014.png" alt="SENTI Most Talked About Shows - April 2014" width="700" height="2200" class="alignnone size-full wp-image-15" /></p>
+]]></content:encoded>
+			<wfw:commentRss>http://senti.com.ph/blog/?feed=rss2&#038;p=18</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Pinoy Summer 2014</title>
+		<link>http://senti.com.ph/blog/?p=7&#038;utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=pinoy-summer-2014</link>
+		<comments>http://senti.com.ph/blog/?p=7#comments</comments>
+		<pubDate>Tue, 13 May 2014 10:12:49 +0000</pubDate>
+		<dc:creator><![CDATA[Ralph Regalado]]></dc:creator>
+				<category><![CDATA[Infographics]]></category>
+
+		<guid isPermaLink="false">http://senti.com.ph/blog/?p=7</guid>
+		<description><![CDATA[It’s the middle of summer! What do we talk about as far as summer is concerned? Taken from Twitter posts last March 2014, just at the beginning of summer, the infographic shows that we talk about the places we wish or plan to go, people want to spend it with, activities we want to do, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><span style="color: #000000;">It’s the middle of summer! What do we talk about as far as summer is concerned? Taken from Twitter posts last March 2014, just at the beginning of summer, the infographic shows that we talk about the places we wish or plan to go, people want to spend it with, activities we want to do, and our feelings about it. Regardless of where, what and who, let’s make the most of this summer!</span></p>
+<p>&nbsp;</p>
+<p><a href="http://senti.com.ph/blog/wp-content/uploads/2014/05/SENTi-Summer-2014.png"><img class="alignnone size-full wp-image-6" src="http://senti.com.ph/blog/wp-content/uploads/2014/05/SENTi-Summer-2014.png" alt="SENTi Summer 2014" width="700" height="2188" /></a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://senti.com.ph/blog/?feed=rss2&#038;p=7</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

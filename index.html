@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/video.css">
 		<link rel="stylesheet" href="css/main.css">
+
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 		<script src="js/vendor/video.js"></script>
@@ -149,37 +150,16 @@
 									</div>
 								</div>
 							</div>
-							<!-- <div id="pricing-price">
-								<div>
-									<h1>Php 150k</h1>
-								</div>
-								<div>
-									<h2>3-Month<br />Subscription</h2>
-								</div>
-							</div> -->
 							<div id="pricing-addons">
 								<h1>Add-ons</h1>
 								<ul>
-									<li>
-										<div>License</div>
-										<!-- <div>10k</div> -->
-									</li>
-									<li>
-										<div>Keyword</div>
-										<!-- <div>8k</div> -->
-									</li>
-									<li>
-										<div>Channel</div>
-										<!-- <div>10k</div> -->
-									</li>
+									<li><div>License</div></li>
+									<li><div>Keyword</div></li>
+									<li><div>Channel</div></li>
 								</ul>
 							</div>
 							<a href="#" class="button buy"><i class="fa fa-info-circle"></i>ASK FOR A QUOTE</a>
 							<a href="#" class="button try"><i class="fa fa-heart"></i>REQUEST A DEMO</a>
-							<!-- <a href="#" class="viewaddons">View Addons</a> -->
-							<!-- <div id="pricing-addons">
-								<h1 class="title">ADDONS</h1>
-							</div> -->
 						</div>
 					</div>
 				</div>
@@ -227,18 +207,19 @@
 					</div>
 				</div>
 			</section>
-			<section class="pane pane-7">
+			<!--section class="pane pane-7">
 				<div id="bgmap"></div>
-			</section>
+			</section-->
 		</div>
 		<div id="demopane">
 			<div id="demopane-content">
 				<h1>Try Senti!</h1>
 				<h2>Just fill in your details here and we'll get back to you as soon as we can.</h2>
 				<form action="">
-					<input type="text" placeholder="Full Name" />
-					<input type="text" placeholder="E-Mail Address" />
-					<input type="text" placeholder="Company" />
+					<input type="text" name="name" placeholder="Full Name" />
+					<input type="text" name="email" placeholder="E-Mail Address" />
+					<input type="text" name="company" placeholder="Company" />
+					<textarea name="message"></textarea>
 					<input type="submit" value="Submit">
 				</form>
 			</div>
@@ -249,6 +230,7 @@
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
 		<script src="js/vendor/jquery.onepage-scroll.min.js"></script>
 		<script src="js/vendor/vague.js"></script>
+		<script src="js/vendor/date.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/main.js"></script>
 

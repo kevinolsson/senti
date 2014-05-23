@@ -746,8 +746,8 @@ div#maincontainer {
 	}
 
 	div#about {
-		width: $semifullwidth;
-		min-width: $semifullwidth;
+		width: $semifullwidth * 0.8;
+		min-width: $semifullwidth * 0.8;
 		height: calc(100% - 100px);
 		position: relative;
 		margin: 0 auto;
@@ -790,8 +790,8 @@ div#maincontainer {
 				}
 				p {
 					color: #fff;
-					font: 300 1em $base;
-					line-height: 1.4em;
+					font: 300 1.2em $base;
+					line-height: 1.6em;
 					margin-bottom: 20px;
 				}
 			}

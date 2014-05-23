@@ -467,8 +467,8 @@ div#maincontainer {
     left: 0;
     content: ''; }
   .pane-3 div#about {
-    width: 960px;
-    min-width: 960px;
+    width: 768px;
+    min-width: 768px;
     height: calc(100% - 100px);
     position: relative;
     margin: 0 auto;
@@ -504,8 +504,8 @@ div#maincontainer {
           padding: 0; }
         .pane-3 div#about div#about-content div#about-writeup p {
           color: #fff;
-          font: 300 1em "Roboto", "Helvetica", sans-serif;
-          line-height: 1.4em;
+          font: 300 1.2em "Roboto", "Helvetica", sans-serif;
+          line-height: 1.6em;
           margin-bottom: 20px; }
 
 .pane-4 {

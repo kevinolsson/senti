@@ -65,7 +65,7 @@ $(function() {
 
 
 	// Test
-	// $(maincontainer).moveTo(6);
+	// $(maincontainer).moveTo(7);
 
 
 });
@@ -85,12 +85,12 @@ function updateState (index) {
 	$('nav#top-nav ul li:nth-child('+ (index - 2) +') a').addClass('active');
 
 	// Make header transparent
-	if (index < 7) {
+	if (index < 8) {
 		$('header#top').addClass('transparent');
 	} else if ($('header#top').hasClass('transparent')) {
 		$('header#top').removeClass('transparent');
 	}
-	if (index == 5) {
+	if (index == 5 || index == 7) {
 		$('header#top').addClass('alt-blue');
 
 		$('a#top-logo-alt').removeClass('hide');
@@ -173,6 +173,8 @@ function init_blog () {
 			var limit = 4;
 			var articles = [];
 
+			// console.log(data);
+
 			$(data).find('item').each(function () {
 				var item = $(this);
 
@@ -184,26 +186,33 @@ function init_blog () {
 						'link': item.find('link').text(),
 						'date': date.toString('MMMM d, yyyy'),
 						'creator': item.find('creator').text(),
-						'text': item.find('description').text(),
+						'text': item.find('description').text()
 					});
 				}
 			});
 
+			// Check if there are articles
+			if (articles.length <= 0) {
+				return;
+			} else {
+				console.log("Length: " + articles[0]);
+			}
+
 			// Populate
 			var blogblock = $('#bigarticle-content');
-
-			// Put first
 			var articleblock = blogblock.find('article');
-			articleblock.html('<h1 class="blog-title">' + articles[0].title + "</h1>");
-			articleblock.append('<div class="blog-byline">' + 'Posted on ' + articles[0].date + ' by ' + articles[0].creator + '</div>');
-			articleblock.append('<p>' + articles[0].text + '</p>')
-
-			// Next 3
 			var etc = $('#bigarticle-etc ul');
 			etc.html('');
-			for (var i = 1; i < limit; i++) {
-				etc.append('<li><a href="' + articles[i].link + '" target="_blank">' + articles[i].title +'</a></li>')
-			}
+
+			$(articles).each(function(index){
+				if (index == 0) {
+					articleblock.html('<h1 class="blog-title">' + this.title + "</h1>");
+					articleblock.append('<div class="blog-byline">' + 'Posted on ' + this.date + ' by ' + this.creator + '</div>');
+					articleblock.append('<p>' + articles[0].text + '</p>')
+				} else {
+					etc.append('<li><a href="' + this.link + '" target="_blank">' + this.title +'</a></li>')
+				}
+			});
 		},
 		error: function (data) {
 			// TODO
@@ -250,16 +259,16 @@ function init_form () {
 		}
 	});
 	// Contact
-	$('nav#top-nav ul li:nth-child(5) a').click(function(){
-		if (!demopane.hasClass('visible')) {
-			demopane.addClass('visible');
-			demopane.fadeIn(500);
-			demopane.find('h1').html(demopane_text[1][0]);
-			demopane.find('h2').html(demopane_text[1][1]);
-			demopane.find('input[name="company"]').hide();
-			demopane.find('textarea').show();
-		}
-	});
+	// $('nav#top-nav ul li:nth-child(5) a').click(function(){
+	// 	if (!demopane.hasClass('visible')) {
+	// 		demopane.addClass('visible');
+	// 		demopane.fadeIn(500);
+	// 		demopane.find('h1').html(demopane_text[1][0]);
+	// 		demopane.find('h2').html(demopane_text[1][1]);
+	// 		demopane.find('input[name="company"]').hide();
+	// 		demopane.find('textarea').show();
+	// 	}
+	// });
 	// Ask quote
 	$('.pane-5 .button.buy').click(function(){
 		if (!demopane.hasClass('visible')) {

@@ -260,10 +260,24 @@ a {
     margin-right: -0.25em;
     content: ''; }
 
-.verticalcentered, div#demopane div#demopane-content {
+.verticalcentered, div#demopane-content,
+div#contact-form {
   font-size: 12pt;
   display: inline-block;
   vertical-align: middle; }
+
+.buttonshadow, header#top.alt-blue nav#top-nav ul li:last-child a, header#top div#top-container nav#top-nav ul li:last-child a, .pane-5 div#pricing div#pricing-content div#pricing-details a.button, div#demopane-content input[type="submit"],
+div#contact-form input[type="submit"] {
+  box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0);
+  -webkit-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0);
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out; }
+  .buttonshadow:hover, header#top.alt-blue nav#top-nav ul li:last-child a:hover, header#top div#top-container nav#top-nav ul li:last-child a:hover, .pane-5 div#pricing div#pricing-content div#pricing-details a.button:hover, div#demopane-content input[type="submit"]:hover,
+  div#contact-form input[type="submit"]:hover {
+    box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0.1); }
 
 header#top {
   width: 100%;
@@ -294,7 +308,9 @@ header#top {
         header#top.transparent nav#top-nav ul li a:hover, header#top.transparent nav#top-nav ul li a.active:hover {
           text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !important; }
     header#top.transparent nav#top-nav ul li:last-child a {
-      background-color: rgba(0, 0, 0, 0.2) !important; }
+      background-color: rgba(0, 0, 0, 0.2) !important;
+      box-shadow: none !important;
+      -webkit-box-shadow: none !important; }
   header#top.alt-blue nav#top-nav ul li a {
     color: #4ec3c7 !important; }
     header#top.alt-blue nav#top-nav ul li a, header#top.alt-blue nav#top-nav ul li a.active {
@@ -359,7 +375,7 @@ header#top {
             line-height: 40px;
             text-align: center;
             margin: 20px 0;
-            padding: 5px 15px; }
+            padding: 5px 15px 7px; }
             header#top div#top-container nav#top-nav ul li:last-child a:hover {
               background-color: #00a7bc; }
 
@@ -769,16 +785,7 @@ div#maincontainer {
           display: inline-block;
           text-transform: uppercase;
           letter-spacing: 2px;
-          padding: 15px 20px 20px;
-          box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0);
-          -webkit-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0);
-          transition: all 0.2s ease-in-out;
-          -webkit-transition: all 0.2s ease-in-out;
-          -moz-transition: all 0.2s ease-in-out;
-          -o-transition: all 0.2s ease-in-out; }
-          .pane-5 div#pricing div#pricing-content div#pricing-details a.button:hover {
-            box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0.1);
-            -webkit-box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 100px rgba(255, 255, 255, 0.1); }
+          padding: 15px 20px 20px; }
           .pane-5 div#pricing div#pricing-content div#pricing-details a.button i.fa {
             margin-right: 15px; }
           .pane-5 div#pricing div#pricing-content div#pricing-details a.button.buy {
@@ -896,32 +903,42 @@ div#maincontainer {
         float: right;
         padding-top: 200px; }
 
-.pane-7 div#bgmap {
-  width: 100%;
-  height: 100%;
-  background-color: #eee; }
-
-div#maptooltip {
-  width: 350px;
-  background-color: #4ec3c7;
-  background-color: rgba(78, 195, 199, 0.9);
-  color: #fff;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  margin-top: 30px;
-  padding: 20px 0; }
-  div#maptooltip h1 {
-    font: 500 3em "Dosis", "Helvetica", sans-serif;
-    margin-bottom: 5px; }
-  div#maptooltip address {
-    font: italic 400 1.5em "Roboto", "Helvetica", sans-serif;
-    margin-bottom: 30px; }
-  div#maptooltip h2 {
-    font: 500 2em "Roboto", "Helvetica", sans-serif; }
-    div#maptooltip h2 span {
-      font-weight: 400;
-      font-size: 0.9em;
-      line-height: 0.5em;
-      margin: 0 2px; }
+.pane-7 {
+  background-color: #f7f7f7; }
+  .pane-7 div#contact {
+    width: 1140px;
+    min-width: 1140px;
+    height: calc(100% - 190px);
+    margin: 0 auto;
+    padding: 120px 0 0; }
+    .pane-7 div#contact div#contact-content {
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+      text-align: center; }
+      .pane-7 div#contact div#contact-content:before {
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: -0.25em;
+        content: ''; }
+      .pane-7 div#contact div#contact-content div#contact-form {
+        max-width: 500px;
+        font-size: 12pt;
+        text-align: center;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: transparent; }
+        .pane-7 div#contact div#contact-content div#contact-form h1 {
+          font-size: 2em; }
+        .pane-7 div#contact div#contact-content div#contact-form h2 {
+          font-weight: 300; }
+        .pane-7 div#contact div#contact-content div#contact-form form input[type="text"],
+        .pane-7 div#contact div#contact-content div#contact-form form textarea {
+          width: 400px; }
+        .pane-7 div#contact div#contact-content div#contact-form form textarea {
+          min-height: 80px;
+          max-height: 80px; }
 
 div#demopane {
   width: 100%;
@@ -941,50 +958,60 @@ div#demopane {
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: -1; }
-  div#demopane div#demopane-content {
-    max-width: 400px;
-    background-color: #fafafa;
-    padding: 30px 40px 40px;
-    z-index: 2; }
-    div#demopane div#demopane-content h1, div#demopane div#demopane-content h2 {
-      color: #007d8d;
-      padding: 0; }
-    div#demopane div#demopane-content h1 {
-      font: 400 3em "Dosis", "Helvetica", sans-serif;
-      margin: 0 0 10px; }
-    div#demopane div#demopane-content h2 {
-      font: 400 1.2em "Roboto", "Helvetica", sans-serif;
-      margin: 0 0 30px; }
-    div#demopane div#demopane-content input[type="text"],
-    div#demopane div#demopane-content textarea {
-      width: 300px;
-      color: #222;
-      font: 300 1.2em "Roboto", "Helvetica", sans-serif;
-      text-align: center;
-      display: block;
-      margin: 0 auto 15px;
-      padding: 12px 15px;
-      border: none;
-      outline: none !important;
-      border-bottom: 2px solid #4ec3c7;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); }
-    div#demopane div#demopane-content textarea {
-      text-align: left;
-      font-size: 1em;
-      min-height: 100px;
-      max-height: 100px; }
-    div#demopane div#demopane-content input[type="submit"] {
-      color: #fff;
-      background-color: #4ec3c7;
-      font: 500 1.4em "Roboto", "Helvetica", sans-serif;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      display: block;
-      margin: 30px auto 0;
-      padding: 10px 30px;
-      border: none;
-      outline: none; }
+
+div#demopane-content,
+div#contact-form {
+  max-width: 400px;
+  background-color: #fafafa;
+  padding: 30px 40px 40px;
+  z-index: 2; }
+  div#demopane-content h1, div#demopane-content h2,
+  div#contact-form h1,
+  div#contact-form h2 {
+    color: #007d8d;
+    padding: 0; }
+  div#demopane-content h1,
+  div#contact-form h1 {
+    font: 400 3em "Dosis", "Helvetica", sans-serif;
+    margin: 0 0 10px; }
+  div#demopane-content h2,
+  div#contact-form h2 {
+    font: 400 1.2em "Roboto", "Helvetica", sans-serif;
+    margin: 0 0 30px; }
+  div#demopane-content input[type="text"],
+  div#demopane-content textarea,
+  div#contact-form input[type="text"],
+  div#contact-form textarea {
+    width: 300px;
+    color: #222;
+    font: 300 1.2em "Roboto", "Helvetica", sans-serif;
+    text-align: center;
+    display: block;
+    margin: 0 auto 15px;
+    padding: 12px 15px;
+    border: none;
+    outline: none !important;
+    border-bottom: 2px solid #4ec3c7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); }
+  div#demopane-content textarea,
+  div#contact-form textarea {
+    text-align: left;
+    font-size: 1em;
+    min-height: 100px;
+    max-height: 100px; }
+  div#demopane-content input[type="submit"],
+  div#contact-form input[type="submit"] {
+    color: #fff;
+    background-color: #4ec3c7;
+    font: 400 1.25em "Roboto", "Helvetica", sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin: 30px auto 0;
+    padding: 10px 30px 14px;
+    border: none;
+    outline: none; }
 
 /* ==========================================================================
    Helper classes

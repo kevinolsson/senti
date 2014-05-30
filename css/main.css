@@ -991,6 +991,9 @@ div#contact-form {
     padding: 12px 15px;
     border: none;
     outline: none !important;
+    border-top: 0px solid #4ec3c7;
+    border-left: 0px solid #4ec3c7;
+    border-right: 0px solid #4ec3c7;
     border-bottom: 2px solid #4ec3c7;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); }
@@ -1012,6 +1015,49 @@ div#contact-form {
     padding: 10px 30px 14px;
     border: none;
     outline: none; }
+
+.animated, div#demopane-content input[type="text"],
+div#demopane-content textarea,
+div#contact-form input[type="text"],
+div#contact-form textarea, div#demopane-content input[type="submit"],
+div#contact-form input[type="submit"] {
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px); }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px); } }
+
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0); }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px); }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px); } }
+
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake; }
 
 /* ==========================================================================
    Helper classes

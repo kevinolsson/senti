@@ -1,20 +1,19 @@
 $(function() {
 
+	// Main container ID
 	var maincontainer = "#maincontainer";
 
 	// Initialize one page scroll
 	$(maincontainer).onepage_scroll({
 		sectionContainer: "section.pane", 
 		easing: "ease",
-		animationTime: 1000,
+		animationTime: 000,
 		pagination: true,
 		updateURL: false,
 		beforeMove: function(index) {
 			updateState(index);
 		},
-		afterMove: function(index) {
-			// TO DO: Play vid pagination
-		}
+		afterMove: function(index) {}
 	});
 	// Vertically center button things on the side
 	$('.onepage-pagination').css({
@@ -22,16 +21,21 @@ $(function() {
 	});
 
 
-	// Nav
+	// Nav - Logo
 	$('a#top-logo, a#top-logo-alt').click(function(index){
 		$(maincontainer).moveTo(1);
 		return false;
 	});
+	// Nav - Links
 	$('nav#top-nav ul li').each(function(index){
 		$(this).find('a').click(function(){
 			$(maincontainer).moveTo(index + 3);
 			return false;
 		});
+	});
+	// Links that go to contacts page
+	$('nav#top-nav ul li:last-child a, nav#top-nav ul li:nth-child(5) a, .pane-5 .button.try, .pane-5 .button.buy').click(function(){
+	   	$(maincontainer).moveTo(7);
 	});
 
 
@@ -56,16 +60,16 @@ $(function() {
 	init_blog();
 
 
-	// Form
+	// Contact Form
 	init_form();
 
 
-	// Google Maps
+	// Google Maps (Disabled)
 	// init_maps();
 
 
 	// Test
-	// $(maincontainer).moveTo(7);
+	$(maincontainer).moveTo(7);
 
 
 });
@@ -104,15 +108,6 @@ function updateState (index) {
 		if (!$('a#top-logo-alt').hasClass('hide')) {
 			$('a#top-logo-alt').addClass('hide');
 		}
-	}
-
-	// Background color (for blur)
-	if (index <= 4) {
-		$('body').css('background-color', '#000');
-	} else if (index == 6) {
-		$('body').css('background-color', '#4EC3C7');
-	} else {
-		$('body').css('background-color', '#FFF');
 	}
 
 	// White pagination
@@ -166,8 +161,7 @@ function fix_hex () {
 function init_blog () {
 	$.ajax({
 		type: 'GET',
-		// url: 'http://senti.com.ph/blog/?feed=rss2',
-		url: 'http://localhost/senti/blog.xml',
+		url: 'http://senti.com.ph/blog/?feed=rss2',
 		dataType: 'xml',
 		success: function (data) {
 			var limit = 4;
@@ -224,67 +218,80 @@ function init_blog () {
 
 // Forms
 function init_form () {
-	// TO DO: Refactor "#demopane"
-	// TO DO: Make the form work
-	var demopane = $('div#demopane');
-	var demopane_text = [
-		[
-			"Try Senti!",
-			"Tell us who you are and we'll let you know when you can start your trial!"
-		],
-		[
-			"Talk to us!",
-			"We wanna hear you out. We'll get back to you as soon as we can!"
-		],
-		[
-			"Ask for a Quote",
-			"Let us help you in your business. We'll send you a quote for our services!"
-		]
+	var form_id = 'div#contact-form form';
+	var fields = [
+		'input[name="name"]',
+		'input[name="email"]',
+		'textarea[name="message"]'
 	];
-	
-	// Try
-	$('nav#top-nav ul li:last-child a, .pane-5 .button.try').click(function(){
-		if (!demopane.hasClass('visible')) {
-			demopane.addClass('visible');
-			demopane.fadeIn(500);
-			demopane.find('h1').html(demopane_text[0][0]);
-			demopane.find('h2').html(demopane_text[0][1]);
-			demopane.find('input[name="company"]').show();
-			demopane.find('textarea').hide();
-			// Blur
-			// $('#maincontainer, #top').Vague({
-			// 	intensity:      10,      // Blur Intensity
-			// 	forceSVGUrl:    false   // Force absolute path to the SVG filter
-			// }).blur();
+	var testEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i;
+
+	// Submit form
+	$(form_id).submit(function(){
+
+		// Validate values
+		var isValid = true;
+		$(fields).each(function(){
+			var field = form_id + ' ' + this;
+			var value = $(field).val();
+			if ($.trim(value).length == 0 ||
+				(field == 'input[name="email"]' && !testEmail.test(value))) {
+				$(field).addClass('shake');
+				$(field).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+					$(this).removeClass('shake');
+				});
+				isValid = false;
+			}
+		});
+
+		// Send 
+		if (isValid) {
+
+			//data to be sent to server
+			// post_data = {'userName':user_name, 'userEmail':user_email, 'userPhone':user_phone, 'userMessage':user_message};
+
+			// //Ajax post data to server
+			// $.post('contact_me.php', post_data, function(response){  
+			    
+			//     //load json data from server and output message     
+			//     if(response.type == 'error')
+			//     {
+			//         output = '<div class="error">'+response.text+'</div>';
+			//     }else{
+			    
+			//         output = '<div class="success">'+response.text+'</div>';
+			        
+			//         //reset values in all input fields
+			//         $('#contact_form input').val(''); 
+			//         $('#contact_form textarea').val(''); 
+			//     }
+			    
+			//     $("#result").hide().html(output).slideDown();
+			// }, 'json');
+
+
+			var post_data = {
+				'name': $(form_id + ' ' + fields[0]).val(),
+				'email': $(form_id + ' ' + fields[1]).val(),
+				'message': $(form_id + ' ' + fields[2]).val(),
+			};
+			$.post('contact.php', post_data, function(response){
+				if (response.type == 'error') {
+					alert('error');
+					$(form_id + ' [input type="submit"]').addClass('shake');
+					$(form_id + ' [input type="submit"]').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+						$(this).removeClass('shake');
+					});
+				} else {
+					alert(response.text);
+					$(fields).each(function(){
+						$(form_id + ' ' + this).val('');
+					});
+				}
+			}, 'json');
 		}
-	});
-	// Contact
-	// $('nav#top-nav ul li:nth-child(5) a').click(function(){
-	// 	if (!demopane.hasClass('visible')) {
-	// 		demopane.addClass('visible');
-	// 		demopane.fadeIn(500);
-	// 		demopane.find('h1').html(demopane_text[1][0]);
-	// 		demopane.find('h2').html(demopane_text[1][1]);
-	// 		demopane.find('input[name="company"]').hide();
-	// 		demopane.find('textarea').show();
-	// 	}
-	// });
-	// Ask quote
-	$('.pane-5 .button.buy').click(function(){
-		if (!demopane.hasClass('visible')) {
-			demopane.addClass('visible');
-			demopane.fadeIn(500);
-			demopane.find('h1').html(demopane_text[2][0]);
-			demopane.find('h2').html(demopane_text[2][1]);
-			demopane.find('input[name="company"]').show();
-			demopane.find('textarea').hide();
-		}
-	});
-	// Hide the pane
-	$('div#demopane .overlay').click(function(){
-		demopane.removeClass('visible');
-		demopane.fadeOut(500);
-		// Vague.unblur();
+
+		return false;
 	});
 }
 

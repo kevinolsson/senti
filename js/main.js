@@ -253,7 +253,7 @@ function init_form () {
 			};
 			$.post('contact.php', post_data, function(response){
 				if (response.type == 'error') {
-					alert('error');
+					alert(response.text);
 					$(form_id + ' [input type="submit"]').addClass('shake');
 					$(form_id + ' [input type="submit"]').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 						$(this).removeClass('shake');

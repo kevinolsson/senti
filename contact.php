@@ -30,24 +30,34 @@ if ($_POST) {
 		die($output);
 	}
 
-	//Sanitize input data using PHP filter_var().
+	// Sanitize input data using PHP filter_var().
 	$entry_name    = filter_var($_POST["name"],    FILTER_SANITIZE_STRING);
 	$entry_email   = filter_var($_POST["email"],   FILTER_SANITIZE_EMAIL);
 	$entry_message = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
 	
 	// Proceed with PHP email.
 	$headers = 'From: '.$entry_email.'' . "\r\n" .
-	'Reply-To: '.$entry_email.'' . "\r\n" .
-	'X-Mailer: PHP/' . phpversion();
+			   'Reply-To: '.$entry_email.'' . "\r\n" .
+			   'X-Mailer: PHP/' . phpversion();
 	
 	// Send mail
-	$sentMail = @mail($to_Email, $subject, $entry_message .'  -'.$entry_name, $headers);
+	$sentMail = mail($to_Email, $subject, $entry_message .'  -'.$entry_name, $headers);
 	
 	if (!$sentMail) {
-		$output = json_encode(array('type'=>'error', 'text' => 'Could not send mail! Please check your PHP mail configuration.'));
+		$output = json_encode(
+			array(
+				'type' => 'error',
+				'text' => 'Could not send mail! Please check your PHP mail configuration.'
+			)
+		);
 		die($output);
 	} else {
-		$output = json_encode(array('type'=>'message', 'text' => 'Hi '.$entry_name .' Thank you for your email'));
+		$output = json_encode(
+			array(
+				'type' => 'message',
+				'text' => 'Hi '.$entry_name .' Thank you for your email'
+			)
+		);
 		die($output);
 	}
 }

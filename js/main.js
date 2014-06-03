@@ -7,7 +7,7 @@ $(function() {
 	$(maincontainer).onepage_scroll({
 		sectionContainer: "section.pane", 
 		easing: "ease",
-		animationTime: 000,
+		animationTime: 1000,
 		pagination: true,
 		updateURL: false,
 		beforeMove: function(index) {
@@ -69,7 +69,7 @@ $(function() {
 
 
 	// Test
-	$(maincontainer).moveTo(7);
+	// $(maincontainer).moveTo(7);
 
 
 });
@@ -246,30 +246,6 @@ function init_form () {
 
 		// Send 
 		if (isValid) {
-
-			//data to be sent to server
-			// post_data = {'userName':user_name, 'userEmail':user_email, 'userPhone':user_phone, 'userMessage':user_message};
-
-			// //Ajax post data to server
-			// $.post('contact_me.php', post_data, function(response){  
-			    
-			//     //load json data from server and output message     
-			//     if(response.type == 'error')
-			//     {
-			//         output = '<div class="error">'+response.text+'</div>';
-			//     }else{
-			    
-			//         output = '<div class="success">'+response.text+'</div>';
-			        
-			//         //reset values in all input fields
-			//         $('#contact_form input').val(''); 
-			//         $('#contact_form textarea').val(''); 
-			//     }
-			    
-			//     $("#result").hide().html(output).slideDown();
-			// }, 'json');
-
-
 			var post_data = {
 				'name': $(form_id + ' ' + fields[0]).val(),
 				'email': $(form_id + ' ' + fields[1]).val(),

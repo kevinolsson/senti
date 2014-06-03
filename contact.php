@@ -41,7 +41,7 @@ if ($_POST) {
 			   'X-Mailer: PHP/' . phpversion();
 	
 	// Send mail
-	$sentMail = mail($to_Email, $subject, $entry_message .'  -'.$entry_name, $headers);
+	$sentMail = @mail($to_Email, $subject, $entry_message .'  -'.$entry_name, $headers);
 	
 	if (!$sentMail) {
 		$output = json_encode(

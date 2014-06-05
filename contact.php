@@ -1,10 +1,17 @@
 <?php
 
-// Mail sender
+/* 
+	TON NOTES:
 
+	- Please remove the "if" checkers if this still doesn't work, just straight to the $sendgrid portion (but don't remove the last $output part)
+	- Please provide credentials
+	- This comment can be removed if necessary lol
+*/
+
+require("sendgrid-php.php");
+
+// Mail sender
 if ($_POST) {
-	$to_Email = "esquivel.antonn@gmail.com"; //Replace with recipient email address
-	$subject  = 'Ah!! My email from Somebody out there...'; //Subject line for emails
 	
 	// Check if its an ajax request, exit if not
 	if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
@@ -31,35 +38,28 @@ if ($_POST) {
 	}
 
 	// Sanitize input data using PHP filter_var().
-	$entry_name    = filter_var($_POST["name"],    FILTER_SANITIZE_STRING);
-	$entry_email   = filter_var($_POST["email"],   FILTER_SANITIZE_EMAIL);
-	$entry_message = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
+	$from_name    = filter_var($_POST["name"],    FILTER_SANITIZE_STRING);
+	$from_email   = filter_var($_POST["email"],   FILTER_SANITIZE_EMAIL);
+	$from_message = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
 	
-	// Proceed with PHP email.
-	$headers = 'From: '.$entry_email.'' . "\r\n" .
-			   'Reply-To: '.$entry_email.'' . "\r\n" .
-			   'X-Mailer: PHP/' . phpversion();
-	
-	// Send mail
-	$sentMail = @mail($to_Email, $subject, $entry_message .'  -'.$entry_name, $headers);
-	
-	if (!$sentMail) {
-		$output = json_encode(
-			array(
-				'type' => 'error',
-				'text' => 'Sorry, we could not send your message!'
-			)
-		);
-		die($output);
-	} else {
-		$output = json_encode(
-			array(
-				'type' => 'message',
-				'text' => 'Hi '.$entry_name .', thank you for your message!'
-			)
-		);
-		die($output);
-	}
+	// Send mail using SendGrid
+	$sendgrid = new SendGrid('username', 'password');
+	$email    = new SendGrid\Email();
+	$email->addTo('hello@senti.com.ph')->
+			setFrom($from_email)->
+			setSubject('Message from senti.com.ph')->
+			setText($from_message)->
+			setHtml($from_message);
+	$sendgrid->send($email);
+
+	// Tell front end that the
+	$output = json_encode(
+		array(
+			'type' => 'message',
+			'text' => 'Hi '.$from_name .', thank you for your message!'
+		)
+	);
+	die($output);
 }
 
 ?>

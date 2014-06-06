@@ -167,8 +167,6 @@ function init_blog () {
 			var limit = 4;
 			var articles = [];
 
-			// console.log(data);
-
 			$(data).find('item').each(function () {
 				var item = $(this);
 
@@ -188,8 +186,6 @@ function init_blog () {
 			// Check if there are articles
 			if (articles.length <= 0) {
 				return;
-			} else {
-				console.log("Length: " + articles[0]);
 			}
 
 			// Populate
@@ -200,17 +196,17 @@ function init_blog () {
 
 			$(articles).each(function(index){
 				if (index == 0) {
-					articleblock.html('<h1 class="blog-title">' + this.title + "</h1>");
+					articleblock.html('<a href="' + this.link + '" target="_blank"><h1 class="blog-title">' + this.title + "</h1></a>");
 					articleblock.append('<div class="blog-byline">' + 'Posted on ' + this.date + ' by ' + this.creator + '</div>');
-					articleblock.append('<p>' + articles[0].text + '</p>')
+					articleblock.append('<p>' + articles[0].text + '</p>');
+					articleblock.append('<p><a href="' + this.link + '" target="_blank">Read full article</a></p>');
 				} else {
 					etc.append('<li><a href="' + this.link + '" target="_blank">' + this.title +'</a></li>')
 				}
 			});
 		},
 		error: function (data) {
-			// TODO
-			console.log("error lol");
+			console.log("Could not retrieve blog articles.");
 		}
 	});
 }
@@ -251,20 +247,24 @@ function init_form () {
 				'email': $(form_id + ' ' + fields[1]).val(),
 				'message': $(form_id + ' ' + fields[2]).val(),
 			};
-			$.post('contact.php', post_data, function(response){
-				if (response.type == 'error') {
-					alert(response.text);
+			$.ajax({
+				url: 'contact.php',
+				type: 'post',
+				data: post_data,
+				success: function () {
+					alert('Thank you, ' + post_data['name'] + ', for your message!');
+					$(fields).each(function(){
+						$(form_id + ' ' + this).val('');
+					});
+				},
+				error: function () {
+					alert('Sorry, our bad. We can\'t send your message');
 					$(form_id + ' input[type="submit"]').addClass('shake');
 					$(form_id + ' input[type="submit"]').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 						$(this).removeClass('shake');
 					});
-				} else {
-					alert(response.text);
-					$(fields).each(function(){
-						$(form_id + ' ' + this).val('');
-					});
 				}
-			}, 'json');
+			});
 		}
 
 		return false;

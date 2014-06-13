@@ -161,7 +161,7 @@ function fix_hex () {
 function init_blog () {
 	$.ajax({
 		type: 'GET',
-		url: 'http://senti.com.ph/blog/?feed=rss2',
+		url: '/blog/?feed=rss2',
 		dataType: 'xml',
 		success: function (data) {
 			var limit = 4;

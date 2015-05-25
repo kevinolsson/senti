@@ -333,10 +333,9 @@ $(window).on('scroll', function() {
     var scroll_pos_test = 4700;             // set to whatever you want it to be
 
     if(y_scroll_pos > scroll_pos_test) {
-    		$("#maincontainer").css( "transform", "scale(.9,.9)" );
-    		$("#maincontainer").css( "top", "220px" );
+    		$("#maincontainer").css( "transform", "scale(.9,.9) translateY(220px)" );
     } else {
-    		$("#maincontainer").css( "transform", "scale(1,1)" );
-    		$("#maincontainer").css( "top", "0" );
+    		$("#maincontainer").css( "transform", "scale(1,1) translateY(0px)" );
     }
 });
+

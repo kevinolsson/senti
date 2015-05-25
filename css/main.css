@@ -380,7 +380,14 @@ header#top {
               background-color: #00a7bc; }
 
 div#maincontainer {
-  z-index: 1; }
+  z-index: 1;
+  background-color: #54c3c6;
+  transition: all ease .3s;
+  -webkit-box-shadow: 0px 9px 11px 0px rgba(50, 50, 50, 1);
+  -moz-box-shadow:    0px 9px 11px 0px rgba(50, 50, 50, 1);
+  box-shadow:         0px 9px 11px 0px rgba(50, 50, 50, 1);
+
+   }
   div#maincontainer section.pane {
     background-position: center center;
     background-size: cover;

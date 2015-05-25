@@ -22,6 +22,10 @@ time, mark, audio, video {
   vertical-align: baseline;
   background: transparent; }
 
+html {
+  background-color: #54c3c6;
+}
+
 body {
   line-height: 1; }
 
@@ -381,12 +385,7 @@ header#top {
 
 div#maincontainer {
   z-index: 1;
-  background-color: #54c3c6;
   transition: all ease .3s;
-  -webkit-box-shadow: 0px 9px 11px 0px rgba(50, 50, 50, 1);
-  -moz-box-shadow:    0px 9px 11px 0px rgba(50, 50, 50, 1);
-  box-shadow:         0px 9px 11px 0px rgba(50, 50, 50, 1);
-
    }
   div#maincontainer section.pane {
     background-position: center center;

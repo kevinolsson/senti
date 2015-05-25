@@ -330,11 +330,11 @@ function init_maps () {
 
 $(window).on('scroll', function() {
     var y_scroll_pos = window.pageYOffset;
-    var scroll_pos_test = 4900;             // set to whatever you want it to be
+    var scroll_pos_test = 4500;             // set to whatever you want it to be
 
     if(y_scroll_pos > scroll_pos_test) {
-    		$("#maincontainer").css( "padding", "0 5%" );
+    		$("#maincontainer").css( "transform", "scale(.9,.9)" );
     } else {
-    		$("#maincontainer").css( "padding", "0 0" );
+    		$("#maincontainer").css( "transform", "scale(1,1)" );
     }
 });

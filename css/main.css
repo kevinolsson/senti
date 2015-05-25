@@ -386,6 +386,7 @@ header#top {
 div#maincontainer {
   z-index: 1;
   transition: all ease .3s;
+  position: relative;
    }
   div#maincontainer section.pane {
     background-position: center center;
@@ -1183,7 +1184,7 @@ div#contact-form input[type="submit"] {
 footer {
   width: 1140px;
   position: relative;
-  top: -220px;
+  //top: -220px;
   margin: 0 auto;
   padding-bottom: 50px;    
 }

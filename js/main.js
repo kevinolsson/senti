@@ -334,7 +334,9 @@ $(window).on('scroll', function() {
 
     if(y_scroll_pos > scroll_pos_test) {
     		$("#maincontainer").css( "transform", "scale(.9,.9)" );
+    		$("#maincontainer").css( "top", "220px" );
     } else {
     		$("#maincontainer").css( "transform", "scale(1,1)" );
+    		$("#maincontainer").css( "top", "0" );
     }
 });

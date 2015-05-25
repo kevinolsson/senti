@@ -26,7 +26,7 @@ time, mark, audio, video {
 }
 
 html {
-	background-color: #54c3c6;
+	background-color: #393d3d;
 }
 
 body {
@@ -621,6 +621,7 @@ header#top {
 div#maincontainer {
 	z-index: 1;
 	transition: all ease .3s;
+	box-shadow: 0px 10px 50px #252828;
 	section.pane {
 		background-position: center center;
 		background-size: cover;

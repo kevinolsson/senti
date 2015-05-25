@@ -1180,4 +1180,15 @@ div#contact-form input[type="submit"] {
   h3 {
     page-break-after: avoid; } }
 
+footer {
+  width: 1140px;
+  position: relative;
+  top: -220px;
+  margin: 0 auto;
+  padding-bottom: 50px;    
+}
 
+footer img {
+  width: 180px;
+  height: 60px;
+}

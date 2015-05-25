@@ -330,7 +330,7 @@ function init_maps () {
 
 $(window).on('scroll', function() {
     var y_scroll_pos = window.pageYOffset;
-    var scroll_pos_test = 4500;             // set to whatever you want it to be
+    var scroll_pos_test = 4700;             // set to whatever you want it to be
 
     if(y_scroll_pos > scroll_pos_test) {
     		$("#maincontainer").css( "transform", "scale(.9,.9)" );

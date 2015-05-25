@@ -130,7 +130,7 @@ textarea {
    ========================================================================== */
 body, html {
   margin: 0;
-  overflow: hidden;
+  /*overflow: hidden;*/
   -webkit-transition: opacity 400ms;
   -moz-transition: opacity 400ms;
   transition: opacity 400ms; }
@@ -1173,3 +1173,5 @@ div#contact-form input[type="submit"] {
   h2,
   h3 {
     page-break-after: avoid; } }
+
+

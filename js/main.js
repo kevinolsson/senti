@@ -1,20 +1,22 @@
 $(function() {
 
+	
+	$('.pane').height($(window).height());
 	// Main container ID
 	var maincontainer = "#maincontainer";
 
 	// Initialize one page scroll
-	$(maincontainer).onepage_scroll({
-		sectionContainer: "section.pane", 
-		easing: "ease",
-		animationTime: 1000,
-		pagination: true,
-		updateURL: false,
-		beforeMove: function(index) {
-			updateState(index);
-		},
-		afterMove: function(index) {}
-	});
+	// $(maincontainer).onepage_scroll({
+	// 	sectionContainer: "section.pane", 
+	// 	easing: "ease",
+	// 	animationTime: 1000,
+	// 	pagination: false,
+	// 	updateURL: false,
+	// 	beforeMove: function(index) {
+	// 		updateState(index);
+	// 	},
+	// 	afterMove: function(index) {}
+	// });
 	// Vertically center button things on the side
 	$('.onepage-pagination').css({
 		'margin-top': $('.onepage-pagination').height() / -2

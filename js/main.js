@@ -1,5 +1,19 @@
 $(function() {
 
+
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+
 	$('.pane').height(800);
 	// Main container ID
 	var maincontainer = "#maincontainer";
@@ -330,7 +344,7 @@ function init_maps () {
 
 $(window).on('scroll', function() {
     var y_scroll_pos = window.pageYOffset;
-    var scroll_pos_test = 4700;             // set to whatever you want it to be
+    var scroll_pos_test = 4800;             // set to whatever you want it to be
 
     if(y_scroll_pos > scroll_pos_test) {
     		$("#maincontainer").css( "transform", "scale(.9,.9) translateY(220px)" );

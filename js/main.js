@@ -344,12 +344,22 @@ function init_maps () {
 
 $(window).on('scroll', function() {
     var y_scroll_pos = window.pageYOffset;
-    var scroll_pos_test = 4800;             // set to whatever you want it to be
+    var scroll_pos_footer = 4800;
+    var scroll_pos_nav = 100;
 
-    if(y_scroll_pos > scroll_pos_test) {
+
+    if(y_scroll_pos > scroll_pos_footer) {
     		$("#maincontainer").css( "transform", "scale(.9,.9) translateY(220px)" );
     } else {
     		$("#maincontainer").css( "transform", "scale(1,1) translateY(0px)" );
+    }
+
+   if(y_scroll_pos > scroll_pos_footer) {
+    		$("#floating-nav").css("transform", "translateY(-50px)");
+    } else if(y_scroll_pos > scroll_pos_nav) {
+    		$("#floating-nav").css("transform", "translateY(0px)");
+    }  else {
+    		$("#floating-nav").css("transform", "translateY(-50px)");
     }
 });
 
